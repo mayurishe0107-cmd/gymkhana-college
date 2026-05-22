@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live Results Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f6f5fb;
+padding:20px;
+color:#1f1f1f;
+}
+
+/* TOPBAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.heading small{
+font-size:13px;
+color:#8b7cff;
+font-weight:600;
+}
+
+.heading h1{
+font-size:42px;
+margin-top:8px;
+font-weight:700;
+}
+
+.heading p{
+margin-top:8px;
+color:#888;
+font-size:15px;
+}
+
+.live-status{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:14px;
+color:#666;
+}
+
+.live-dot{
+width:9px;
+height:9px;
+background:#00c853;
+border-radius:50%;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+margin-bottom:25px;
+}
+
+.stat-card{
+background:white;
+border-radius:22px;
+padding:24px;
+display:flex;
+align-items:center;
+gap:18px;
+box-shadow:0 4px 15px rgba(0,0,0,.04);
+border:1px solid #efefef;
+}
+
+.stat-icon{
+width:55px;
+height:55px;
+border-radius:18px;
+background:linear-gradient(135deg,#7b61ff,#5d7bff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+color:white;
+}
+
+.stat-info h5{
+font-size:14px;
+color:#777;
+margin-bottom:5px;
+font-weight:500;
+}
+
+.stat-info h2{
+font-size:30px;
+font-weight:700;
+}
+
+/* TABS */
+
+.tabs{
+background:white;
+padding:16px;
+border-radius:22px;
+display:flex;
+gap:15px;
+margin-bottom:25px;
+box-shadow:0 4px 15px rgba(0,0,0,.04);
+overflow-x:auto;
+}
+
+.tab{
+padding:12px 22px;
+border-radius:14px;
+background:#f7f7fb;
+font-size:14px;
+white-space:nowrap;
+cursor:pointer;
+}
+
+.tab.active{
+background:linear-gradient(135deg,#7b61ff,#5d7bff);
+color:white;
+}
+
+/* CHART CARDS */
+
+.card{
+background:white;
+border-radius:28px;
+padding:28px;
+margin-bottom:25px;
+box-shadow:0 4px 18px rgba(0,0,0,.04);
+border:1px solid #efefef;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:25px;
+font-weight:700;
+}
+
+canvas{
+width:100% !important;
+}
+
+/* STANDINGS */
+
+.candidate{
+margin-bottom:28px;
+}
+
+.candidate-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+font-size:15px;
+font-weight:600;
+}
+
+.progress{
+height:10px;
+width:100%;
+background:#ece9ff;
+border-radius:30px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:linear-gradient(90deg,#7b61ff,#5d7bff);
+border-radius:30px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.heading h1{
+font-size:30px;
+}
+
+body{
+padding:15px;
+}
+
+.card{
+padding:22px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+
+<div class="topbar">
+
+<div class="heading">
+
+<small>📊 Module 04</small>
+
+<h1>Live Results Dashboard</h1>
+
+<p>
+Real-time vote counts, percentages and winner trends —
+student viewer mode.
+</p>
+
+</div>
+
+<div class="live-status">
+
+<div class="live-dot"></div>
+
+Live
+
+<span>👁 317 viewing</span>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat-card">
+
+<div class="stat-icon">👥</div>
+
+<div class="stat-info">
+<h5>Total Votes Cast</h5>
+<h2>1,418</h2>
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon">📈</div>
+
+<div class="stat-info">
+<h5>Turnout</h5>
+<h2>68%</h2>
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon">🏆</div>
+
+<div class="stat-info">
+<h5>Leading</h5>
+<h2>Riya Sharma</h2>
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon">📊</div>
+
+<div class="stat-info">
+<h5>Categories Live</h5>
+<h2>4/4</h2>
+</div>
+
+</div>
+
+</div>
+
+<!-- TABS -->
+
+<div class="tabs">
+
+<div class="tab active">
+Gathering Secretary
+</div>
+
+<div class="tab">
+Indoor Secretary
+</div>
+
+<div class="tab">
+Outdoor Secretary
+</div>
+
+</div>
+
+<!-- DONUT -->
+
+<div class="card">
+
+<h3>Vote Share</h3>
+
+<canvas id="pieChart"></canvas>
+
+</div>
+
+<!-- BAR -->
+
+<div class="card">
+
+<h3>Live Vote Count</h3>
+
+<canvas id="barChart"></canvas>
+
+</div>
+
+<!-- STANDINGS -->
+
+<div class="card">
+
+<h3>Candidate Standings</h3>
+
+<div class="candidate">
+
+<div class="candidate-top">
+<span>Riya Sharma</span>
+<span>421 • 46.7%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:46.7%"></div>
+</div>
+
+</div>
+
+<div class="candidate">
+
+<div class="candidate-top">
+<span>Mohit Joshi</span>
+<span>296 • 32.9%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:32.9%"></div>
+</div>
+
+</div>
+
+<div class="candidate">
+
+<div class="candidate-top">
+<span>Ananya Rao</span>
+<span>184 • 20.4%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:20.4%"></div>
+</div>
+
+</div>
+
+</div>
+
+<!-- LINE -->
+
+<div class="card">
+
+<h3>Voter Turnout Throughout the Day</h3>
+
+<canvas id="lineChart"></canvas>
+
+</div>
+
+<script>
+
+Chart.defaults.font.family = 'Inter';
+
+new Chart(document.getElementById('pieChart'),{
+type:'doughnut',
+
+data:{
+labels:['Riya Sharma','Mohit Joshi','Ananya Rao'],
+
+datasets:[{
+data:[47,33,20],
+
+backgroundColor:[
+'#7b61ff',
+'#1e88ff',
+'#d946ef'
+],
+
+borderWidth:0
+}]
+},
+
+options:{
+cutout:'68%',
+
+plugins:{
+legend:{
+position:'bottom'
+}
+}
+}
+});
+
+new Chart(document.getElementById('barChart'),{
+
+type:'bar',
+
+data:{
+labels:['Riya Sharma','Mohit Joshi','Ananya Rao'],
+
+datasets:[{
+data:[421,296,184],
+
+backgroundColor:[
+'#7b61ff',
+'#6b7cff',
+'#8d65ff'
+],
+
+borderRadius:12
+}]
+},
+
+options:{
+plugins:{
+legend:{
+display:false
+}
+},
+
+scales:{
+y:{
+beginAtZero:true
+}
+}
+}
+});
+
+new Chart(document.getElementById('lineChart'),{
+
+type:'line',
+
+data:{
+labels:[
+'9:00','10:00','11:00',
+'12:00','13:00','14:00',
+'15:00','16:00','17:00',
+'18:00','19:00','20:00'
+],
+
+datasets:[{
+
+data:[
+50,80,120,130,
+160,170,165,180,
+175,185,220,240
+],
+
+borderColor:'#7b61ff',
+
+backgroundColor:'rgba(123,97,255,.12)',
+
+fill:true,
+
+tension:.4,
+
+pointRadius:0
+}]
+},
+
+options:{
+plugins:{
+legend:{
+display:false
+}
+}
+}
+});
+
+</script>
+
+</body>
+</html>

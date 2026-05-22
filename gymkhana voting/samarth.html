@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ballot Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#f7f7fb;
+--card:#ffffff;
+--text:#1e2430;
+--muted:#8e94a6;
+--line:#ececf2;
+--purple:#6c4cff;
+--blue:#3b82ff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:var(--bg);
+overflow-x:hidden;
+}
+
+.navbar{
+height:62px;
+background:white;
+border-bottom:1px solid #f0f0f3;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 18px;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.menu{
+width:34px;
+height:34px;
+border-radius:10px;
+background:#f5f6fa;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:16px;
+color:#777;
+}
+
+.search{
+width:320px;
+height:38px;
+border-radius:12px;
+border:1px solid #f1f1f4;
+background:#fafafb;
+padding:0 14px;
+font-size:13px;
+outline:none;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.notify{
+position:relative;
+font-size:18px;
+}
+
+.notify::after{
+content:'3';
+position:absolute;
+top:-4px;
+right:-7px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:#ff4b6e;
+color:white;
+font-size:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.admin{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.avatar{
+width:34px;
+height:34px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--purple),var(--blue));
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:12px;
+font-weight:600;
+color:white;
+}
+
+.admin-text h4{
+font-size:13px;
+}
+
+.admin-text p{
+font-size:11px;
+color:var(--muted);
+}
+
+.container{
+padding:18px 20px 120px;
+}
+
+.module{
+font-size:12px;
+color:#8f95a6;
+margin-bottom:12px;
+}
+
+.top-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+margin-bottom:24px;
+}
+
+.title h1{
+font-size:46px;
+font-weight:700;
+margin-bottom:8px;
+color:#1d2433;
+}
+
+.title p{
+color:#8e95a4;
+font-size:15px;
+}
+
+.tags{
+display:flex;
+gap:16px;
+font-size:13px;
+color:#8f95a6;
+margin-top:16px;
+}
+
+.toast{
+position:fixed;
+top:82px;
+right:20px;
+background:#e8fff0;
+border:1px solid #c6f0d4;
+padding:16px 22px;
+border-radius:14px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.04);
+z-index:999;
+}
+
+.toast-icon{
+width:24px;
+height:24px;
+border-radius:50%;
+background:#16a34a;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:12px;
+}
+
+.toast p{
+font-size:14px;
+color:#2f5c3c;
+font-weight:500;
+}
+
+.progress{
+background:#eef6ff;
+border:1px solid #e3eefc;
+padding:22px;
+border-radius:24px;
+margin-bottom:36px;
+}
+
+.progress-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:18px;
+font-size:14px;
+color:#667085;
+}
+
+.tabs{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.tab{
+background:white;
+padding:10px 18px;
+border-radius:999px;
+font-size:12px;
+border:1px solid #edf0f6;
+}
+
+.section{
+margin-bottom:46px;
+}
+
+.section h2{
+font-size:34px;
+font-weight:700;
+margin-bottom:8px;
+color:#1d2433;
+}
+
+.section p{
+font-size:14px;
+color:#8f95a6;
+margin-bottom:22px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+}
+
+.card{
+background:white;
+border:1px solid #f0f1f4;
+border-radius:24px;
+padding:20px;
+transition:0.3s;
+box-shadow:0 5px 20px rgba(0,0,0,0.03);
+}
+
+.card.active{
+border:2px solid #7c4dff;
+background:#faf7ff;
+}
+
+.card-top{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:18px;
+}
+
+.circle{
+width:48px;
+height:48px;
+border-radius:50%;
+background:linear-gradient(135deg,#7048ff,#3772ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+font-weight:600;
+color:white;
+}
+
+.name{
+font-size:18px;
+font-weight:600;
+margin-bottom:4px;
+}
+
+.branch{
+font-size:12px;
+color:#8f95a6;
+}
+
+.promise{
+background:#edf6ff;
+padding:12px 14px;
+border-radius:14px;
+font-size:13px;
+color:#677285;
+margin-bottom:18px;
+}
+
+.vote-btn{
+width:100%;
+height:46px;
+border-radius:14px;
+border:none;
+background:white;
+font-size:13px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.vote-btn:hover{
+background:#f3f4f8;
+}
+
+.footer{
+position:fixed;
+left:50%;
+transform:translateX(-50%);
+bottom:20px;
+width:95%;
+background:white;
+border-radius:24px;
+padding:18px 24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.footer-left{
+font-size:14px;
+color:#8f95a6;
+}
+
+.footer-right{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.demo{
+padding:10px 16px;
+background:#f4f4f7;
+border-radius:999px;
+font-size:13px;
+color:#555;
+}
+
+.submit{
+height:50px;
+padding:0 28px;
+border:none;
+border-radius:999px;
+background:linear-gradient(90deg,#7048ff,#3772ff);
+color:white;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.search{
+width:180px;
+}
+
+.top-row{
+flex-direction:column;
+gap:12px;
+}
+
+.title h1{
+font-size:34px;
+}
+
+.section h2{
+font-size:28px;
+}
+
+.footer{
+flex-direction:column;
+gap:16px;
+}
+
+}
+.success-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.25);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.popup-box{
+width:360px;
+background:#eef6ff;
+padding:40px 30px;
+border-radius:28px;
+text-align:center;
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+.popup-icon{
+width:70px;
+height:70px;
+border-radius:20px;
+background:#12b76a;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+font-size:32px;
+color:white;
+margin-bottom:20px;
+}
+
+.popup-box h2{
+font-size:34px;
+margin-bottom:12px;
+}
+
+.popup-box p{
+color:#667085;
+font-size:14px;
+margin-bottom:24px;
+}
+
+.receipt{
+background:white;
+padding:16px;
+border-radius:14px;
+text-align:left;
+margin-bottom:20px;
+}
+
+.retry-btn{
+height:42px;
+padding:0 24px;
+border:none;
+border-radius:999px;
+background:white;
+cursor:pointer;
+font-weight:500;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+<div class="nav-left">
+
+<div class="menu">☰</div>
+
+<input
+class="search"
+placeholder="Search candidates, modules, logs..."
+>
+
+</div>
+
+<div class="nav-right">
+
+<div class="notify">🔔</div>
+
+<div class="admin">
+
+<div class="avatar">AD</div>
+
+<div class="admin-text">
+<h4>Admin</h4>
+<p>Election Board</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="toast">
+
+<div class="toast-icon">✓</div>
+
+<p>
+Identity verified • Ballot unlocked
+</p>
+
+</div>
+
+<div class="container">
+
+<div class="module">
+📁 Module 03
+</div>
+
+<div class="top-row">
+
+<div class="title">
+
+<h1>Secure Voting Booth</h1>
+
+<p>
+End-to-end encrypted ballot • One person, one vote.
+</p>
+
+</div>
+
+<div class="tags">
+<div>🛡 AES-256</div>
+<div>🔒 Audit-trailed</div>
+<div style="background:#7048ff;color:white;padding:6px 12px;border-radius:999px;">
+Closes in 07:57
+</div>
+</div>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-top">
+<div>Ballot progress</div>
+<div>0 / 4 categories</div>
+</div>
+
+<div class="tabs">
+
+<div class="tab">General Secretary</div>
+<div class="tab">Gathering Secretary</div>
+<div class="tab">Indoor Secretary</div>
+<div class="tab">Outdoor Secretary</div>
+
+</div>
+
+</div>
+
+<!-- GENERAL -->
+
+<div class="section">
+
+<h2>General Secretary</h2>
+
+<p>Slide through candidates and tap to select one</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-top">
+<div class="circle">RS</div>
+
+<div>
+<div class="name">Riya Sharma</div>
+<div class="branch">Computer • TY</div>
+</div>
+</div>
+
+<div class="promise">
+"Transparency, tech-first campus"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">MJ</div>
+
+<div>
+<div class="name">Mohit Joshi</div>
+<div class="branch">IT • TY</div>
+</div>
+</div>
+
+<div class="promise">
+"Student-first reforms"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">AR</div>
+
+<div>
+<div class="name">Ananya Rao</div>
+<div class="branch">ENTC • TY</div>
+</div>
+</div>
+
+<div class="promise">
+"Inclusive Gymkhana"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GATHERING -->
+
+<div class="section">
+
+<h2>Gathering Secretary</h2>
+
+<p>Slide through candidates and tap to select one</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-top">
+<div class="circle">AV</div>
+
+<div>
+<div class="name">Aditya Verma</div>
+<div class="branch">IT • SY</div>
+</div>
+</div>
+
+<div class="promise">
+"Bigger, bolder fests"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">PD</div>
+
+<div>
+<div class="name">Pooja Desai</div>
+<div class="branch">Computer • SY</div>
+</div>
+</div>
+
+<div class="promise">
+"Sustainable celebrations"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- INDOOR -->
+
+<div class="section">
+
+<h2>Indoor Secretary</h2>
+
+<p>Slide through candidates and tap to select one</p>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">SI</div>
+
+<div>
+<div class="name">Sneha Iyer</div>
+<div class="branch">Mech • SY</div>
+</div>
+</div>
+
+<div class="promise">
+"More leagues, more wins"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">RK</div>
+
+<div>
+<div class="name">Rohit Kale</div>
+<div class="branch">Civil • TY</div>
+</div>
+</div>
+
+<div class="promise">
+"Indoor arena upgrade"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- OUTDOOR -->
+
+<div class="section">
+
+<h2>Outdoor Secretary</h2>
+
+<p>Slide through candidates and tap to select one</p>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">KP</div>
+
+<div>
+<div class="name">Karan Patel</div>
+<div class="branch">Civil • TY</div>
+</div>
+</div>
+
+<div class="promise">
+"Inter-college glory"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="card-top">
+<div class="circle">IB</div>
+
+<div>
+<div class="name">Ishita Bose</div>
+<div class="branch">Mech • TY</div>
+</div>
+</div>
+
+<div class="promise">
+"Better training, better gear"
+</div>
+
+<button class="vote-btn" onclick="voteDone(this)">
+Tap to vote
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<div class="footer-left">
+Selections: 0/4
+</div>
+
+<div class="footer-right">
+
+<div class="demo">
+Demo: Already voted
+</div>
+
+<button class="submit" onclick="submitVote()">
+Submit Encrypted Ballot
+</button>
+
+</div>
+
+</div>
+
+<script>
+function submitVote(){
+
+document.getElementById("successPopup").style.display = "flex";
+
+}
+
+function voteDone(button){
+
+event.stopPropagation();
+
+let section = button.closest('.section');
+
+section.querySelectorAll('.card').forEach(card=>{
+
+card.classList.remove('active');
+
+let btn = card.querySelector('.vote-btn');
+
+btn.innerText = "Tap to vote";
+
+btn.style.background = "white";
+
+btn.style.color = "#111";
+
+});
+
+let selectedCard = button.closest('.card');
+
+selectedCard.classList.add('active');
+
+button.innerText = "Voted ✓";
+
+button.style.background = "#7048ff";
+
+button.style.color = "white";
+
+}
+
+</script>
+
+<div class="success-popup" id="successPopup">
+
+<div class="popup-box">
+
+<div class="popup-icon">✓</div>
+
+<h2>Vote Recorded</h2>
+
+<p>
+Your encrypted ballot has been securely submitted.
+Thank you for participating.
+</p>
+
+<div class="receipt">
+RECEIPT<br>
+BLT-MFD3781B
+</div>
+
+<button class="retry-btn" onclick="location.reload()">
+Try voting again
+</button>
+
+</div>
+
+</div>
+</body>
+</html>

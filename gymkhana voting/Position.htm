@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Applications</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f7f5fb;
+padding:14px;
+color:#111827;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.search{
+width:55%;
+height:38px;
+background:white;
+border-radius:20px;
+border:1px solid #ececec;
+padding:0 14px;
+font-size:13px;
+outline:none;
+}
+
+.profile{
+background:white;
+padding:8px 12px;
+border-radius:18px;
+font-size:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.module{
+font-size:12px;
+color:#6b7280;
+margin-bottom:10px;
+}
+
+.heading h1{
+font-size:19px;
+font-weight:700;
+margin-bottom:4px;
+}
+
+.heading p{
+font-size:12px;
+color:#6b7280;
+margin-bottom:18px;
+}
+
+.card{
+background:white;
+border-radius:22px;
+padding:18px;
+margin-bottom:18px;
+box-shadow:0 2px 10px rgba(0,0,0,0.04);
+}
+
+.card-title{
+font-size:15px;
+font-weight:600;
+margin-bottom:18px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.input-group{
+display:flex;
+flex-direction:column;
+}
+
+label{
+font-size:11px;
+color:#6b7280;
+margin-bottom:6px;
+}
+
+input,
+select,
+textarea{
+border:1px solid #ececec;
+border-radius:12px;
+padding:12px;
+font-size:13px;
+outline:none;
+background:white;
+}
+
+input,
+select{
+height:42px;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+.upload{
+margin-top:10px;
+height:68px;
+border:1px solid #ececec;
+border-radius:16px;
+background:#faf9fd;
+display:flex;
+align-items:center;
+padding:0 16px;
+gap:14px;
+cursor:pointer;
+}
+
+.upload-icon{
+width:40px;
+height:40px;
+border-radius:14px;
+background:linear-gradient(135deg,#7c3aed,#2563eb);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+color:white;
+}
+
+.upload h4{
+font-size:13px;
+font-weight:500;
+}
+
+.upload p{
+font-size:11px;
+color:#6b7280;
+margin-top:2px;
+}
+
+.bottom{
+margin-top:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.bottom span{
+font-size:11px;
+color:#6b7280;
+}
+
+.btn{
+height:40px;
+padding:0 18px;
+border:none;
+border-radius:20px;
+background:linear-gradient(90deg,#7c3aed,#2563eb);
+color:white;
+font-size:13px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(124,58,237,0.2);
+}
+
+.status-item{
+height:54px;
+border:1px solid #f1f1f1;
+border-radius:16px;
+padding:0 16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
+}
+
+.left-status{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:13px;
+}
+
+.circle{
+width:24px;
+height:24px;
+border-radius:50%;
+border:2px solid #d1d5db;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:10px;
+color:#9ca3af;
+}
+
+.done .circle{
+background:#dcfce7;
+border-color:#86efac;
+color:#22c55e;
+}
+
+.progress .circle{
+background:#ede9fe;
+border-color:#c4b5fd;
+color:#7c3aed;
+}
+
+.right-status{
+font-size:12px;
+color:#9ca3af;
+}
+
+.toast{
+position:fixed;
+top:16px;
+right:16px;
+background:#dcfce7;
+color:#15803d;
+padding:14px 18px;
+border-radius:14px;
+font-size:13px;
+display:none;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.search{
+width:64%;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">
+✅ Application submitted successfully
+</div>
+
+<div class="topbar">
+
+<input
+type="text"
+class="search"
+placeholder="Search candidates, modules, logs..."
+>
+
+<div class="profile">
+AD Admin
+</div>
+
+</div>
+
+<div class="module">
+◌ Module 02
+</div>
+
+<div class="heading">
+
+<h1>
+Candidate Applications
+</h1>
+
+<p>
+Run for office. Submit your profile, manifesto and supporting documents.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Apply for a Post
+</div>
+
+<div class="grid">
+
+<div class="input-group">
+<label>Post</label>
+
+<select>
+<option selected disabled>Select post</option>
+<option>Gathering Secretary (GS)</option>
+<option>Sports Indoor Secretary</option>
+<option>Sports Outdoor Secretary</option>
+</select>
+
+</div>
+
+<div class="input-group">
+<label>Unique CR ID</label>
+<input type="text" placeholder="Enter CR ID">
+</div>
+
+<div class="input-group">
+<label>Full Name</label>
+<input type="text" placeholder="Enter full name">
+</div>
+
+<div class="input-group">
+<label>Department · Division</label>
+<input type="text" placeholder="Enter department & division">
+</div>
+
+</div>
+
+<div style="margin-top:18px;">
+
+<label>
+Profile Photo
+</label>
+
+<div class="upload">
+
+<div class="upload-icon">
+📷
+</div>
+
+<div>
+<h4>Upload square photo</h4>
+<p>PNG or JPG • 500×500 recommended</p>
+</div>
+
+</div>
+
+</div>
+
+<div style="margin-top:18px;">
+
+<label>
+Manifesto
+</label>
+
+<textarea placeholder="Write your manifesto..."></textarea>
+
+<div style="font-size:11px;color:#9ca3af;text-align:right;margin-top:6px;">
+Max 1,000 characters
+</div>
+
+</div>
+
+<div class="bottom">
+
+<span>
+Applications close: 22 May, 23:59
+</span>
+
+<button class="btn" onclick="submitApplication()">
+Submit Application
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Application Status
+</div>
+
+<div class="status-item done" id="s1">
+
+<div class="left-status">
+<div class="circle">✓</div>
+Profile Submitted
+</div>
+
+<div class="right-status" id="t1">
+Done
+</div>
+
+</div>
+
+<div class="status-item done" id="s2">
+
+<div class="left-status">
+<div class="circle">✓</div>
+Document Review
+</div>
+
+<div class="right-status" id="t2">
+Done
+</div>
+
+</div>
+
+<div class="status-item progress" id="s3">
+
+<div class="left-status">
+<div class="circle">⏳</div>
+Board Approval
+</div>
+
+<div class="right-status" id="t3">
+In progress
+</div>
+
+</div>
+
+<div class="status-item" id="s4">
+
+<div class="left-status">
+<div class="circle">⌛</div>
+Listed on Ballot
+</div>
+
+<div class="right-status" id="t4">
+Pending
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function submitApplication(){
+
+document.getElementById('toast').style.display='block';
+
+setTimeout(()=>{
+
+document.getElementById('s3').classList.remove('progress');
+document.getElementById('s3').classList.add('done');
+
+document.getElementById('t3').innerText='Done';
+
+},2000);
+
+setTimeout(()=>{
+
+document.getElementById('s4').classList.add('done');
+
+document.getElementById('t4').innerText='Done';
+
+},4000);
+
+}
+
+</script>
+
+</body>
+</html>
