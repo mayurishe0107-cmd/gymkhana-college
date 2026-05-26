@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+/* NAVBAR */
+
+.navbar{
+  width:100%;
+  background:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#6c4cff;
+}
+
+.sign-btn{
+  background:#6c4cff;
+  color:white;
+  padding:12px 25px;
+  border-radius:10px;
+}
+
+/* LOGIN BOX */
+
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:60px 20px;
+}
+
+.login-box{
+  width:700px;
+  background:white;
+  border-radius:25px;
+  padding:50px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.back{
+  margin-bottom:30px;
+  display:inline-block;
+  color:#777;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.login-box h1{
+  font-size:45px;
+  margin-bottom:10px;
+}
+
+.admin-tag{
+  color:#6c4cff;
+  font-weight:bold;
+  margin-bottom:40px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.input-box{
+  margin-bottom:25px;
+}
+
+.input-box label{
+  display:block;
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+.input-box input{
+  width:100%;
+  padding:16px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+}
+
+.input-box input:focus{
+  outline:none;
+  border:1px solid #6c4cff;
+}
+
+.login-btn{
+  width:100%;
+  padding:18px;
+  background:#6c4cff;
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.note{
+  margin-top:25px;
+  color:#666;
+  text-align:center;
+  font-size:14px;
+  line-height:24px;
+}
+
+.footer{
+  margin-top:50px;
+  border-top:1px solid #eee;
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  color:#777;
+}
+
+@media(max-width:768px){
+
+.row{
+  grid-template-columns:1fr;
+}
+
+.login-box{
+  padding:30px;
+}
+
+.login-box h1{
+  font-size:35px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+  <div class="logo">
+    Gymkhana Portal
+  </div>
+
+  <div class="sign-btn">
+    Admin Access
+  </div>
+
+</div>
+
+<!-- LOGIN -->
+
+<div class="container">
+
+  <div class="login-box">
+
+    <a href="index.html" class="back">
+      ← BACK TO LANDING
+    </a>
+
+    <h1>Admin Login</h1>
+
+    <div class="admin-tag">
+      Secure Authentication Portal
+    </div>
+
+    <form id="loginForm">
+
+      <div class="row">
+
+        <div class="input-box">
+
+          <label>Admin Username</label>
+
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter username"
+          >
+
+        </div>
+
+        <div class="input-box">
+
+          <label>College Email</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="input-box">
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter password"
+        >
+
+      </div>
+
+      <button type="submit" class="login-btn">
+        ACCESS ADMIN PANEL →
+      </button>
+
+    </form>
+
+    <div class="note">
+
+      Only authorized Gymkhana administrators can access this portal.
+      All login activities are monitored securely.
+
+    </div>
+
+    <div class="footer">
+
+      <div>© 2026 Government Polytechnic Nashik</div>
+
+      <div>Secure Admin System</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let username = document.getElementById("username").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+/* SIMPLE LOGIN */
+
+if(
+username === "gpn" &&
+email === "gpnashik@gmail.ac.in" &&
+password === "gpn123"
+){
+
+alert("Login Successful");
+
+/* REDIRECT TO HOME PAGE */
+
+window.location.href = "home.html";
+
+}
+else{
+
+alert("Invalid Credentials");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
