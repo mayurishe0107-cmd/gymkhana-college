@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winner Management</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f9fc;
+    padding:20px;
+}
+
+.header{
+    background:linear-gradient(90deg,#8b5cf6,#3b82f6);
+    color:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:24px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#333;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:500;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.btn{
+    background:linear-gradient(90deg,#8b5cf6,#3b82f6);
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+.winner-card{
+    background:white;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:15px;
+    border:1px solid #eee;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.winner-card h3{
+    color:#222;
+    margin-bottom:5px;
+}
+
+.position{
+    color:#8b5cf6;
+    font-weight:600;
+}
+
+.actions{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+}
+
+.edit-btn{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.delete-btn{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    .row{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1><i class="fa-solid fa-trophy"></i> Winner Management</h1>
+<p>Add, Edit and Manage Event Winners</p>
+</div>
+
+<div class="card">
+<h2>Add New Winner</h2>
+
+<form>
+
+<div class="form-group">
+<label>Winner Name</label>
+<input type="text" placeholder="Enter winner name">
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Event</label>
+<select>
+<option>Solo Singing</option>
+<option>Group Singing</option>
+<option>Solo Dance</option>
+<option>Group Dance</option>
+<option>Anchoring</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Position</label>
+<select>
+<option>1st Place</option>
+<option>2nd Place</option>
+<option>3rd Place</option>
+</select>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Year</label>
+<select>
+<option>FY</option>
+<option>SY</option>
+<option>TY</option>
+<option>BTech</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Academic Year</label>
+<input type="text" value="2025-26">
+</div>
+
+</div>
+
+<div class="form-group">
+<label>Department</label>
+<input type="text" placeholder="Computer Engineering">
+</div>
+
+<button type="submit" class="btn">
+<i class="fa-solid fa-plus"></i> Add Winner
+</button>
+
+</form>
+</div>
+
+<div class="card">
+<h2>Existing Winners</h2>
+
+<div class="winner-card">
+<h3>Ananya Joshi</h3>
+<p>Solo Singing</p>
+<p class="position">1st Place</p>
+<p>Computer Engineering</p>
+
+<div class="actions">
+<button class="edit-btn">Edit</button>
+<button class="delete-btn">Delete</button>
+</div>
+</div>
+
+<div class="winner-card">
+<h3>Harmony Crew</h3>
+<p>Group Singing</p>
+<p class="position">1st Place</p>
+<p>Multiple Departments</p>
+
+<div class="actions">
+<button class="edit-btn">Edit</button>
+<button class="delete-btn">Delete</button>
+</div>
+</div>
+
+<div class="winner-card">
+<h3>Ishaan Verma</h3>
+<p>Solo Dance</p>
+<p class="position">1st Place</p>
+<p>Mechanical Engineering</p>
+
+<div class="actions">
+<button class="edit-btn">Edit</button>
+<button class="delete-btn">Delete</button>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
