@@ -1,0 +1,812 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Singing - Gymkhana Cultural Gathering</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8f9fc;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 16px;
+background:white;
+box-shadow:0 2px 4px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.menu-icon{
+font-size:20px;
+cursor:pointer;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.logo-icon{
+width:30px;
+height:30px;
+background:linear-gradient(135deg,#8b5cf6,#3b82f6);
+border-radius:6px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:16px;
+}
+
+.logo h3{
+font-size:14px;
+font-weight:600;
+line-height:1;
+}
+
+.logo p{
+font-size:10px;
+color:#666;
+line-height:1;
+}
+
+.btn-register-nav{
+background:linear-gradient(90deg,#8b5cf6,#3b82f6);
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:20px;
+font-weight:500;
+cursor:pointer;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+position:fixed;
+top:0;
+left:-280px;
+width:280px;
+height:100vh;
+background:white;
+z-index:1000;
+transition:0.3s ease;
+padding:16px;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.sidebar-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:24px;
+}
+
+#closeBtn{
+font-size:20px;
+cursor:pointer;
+}
+
+.sidebar-menu{
+list-style:none;
+}
+
+.sidebar-menu li{
+padding:12px;
+border-radius:8px;
+margin-bottom:4px;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:12px;
+color:#444;
+}
+
+.sidebar-menu li.active{
+background:#f0f4ff;
+color:#3b82f6;
+font-weight:500;
+}
+
+.sidebar-menu li:hover{
+background:#f5f5f5;
+}
+
+.sidebar-menu a{
+text-decoration:none;
+color:inherit;
+display:flex;
+align-items:center;
+gap:12px;
+width:100%;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:rgba(0,0,0,0.5);
+z-index:999;
+display:none;
+}
+
+.overlay.active{
+display:block;
+}
+
+/* ================= HERO ================= */
+
+.singing-hero{
+background:linear-gradient(90deg,#6d28d9 0%,#1e40af 100%);
+color:white;
+padding:32px 16px 40px;
+}
+
+.badge-singing{
+background:rgba(255,255,255,0.15);
+padding:4px 10px;
+border-radius:12px;
+font-size:11px;
+display:inline-block;
+margin-bottom:12px;
+}
+
+.singing-hero h1{
+font-size:28px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.singing-hero p{
+font-size:13px;
+color:#d1d5db;
+}
+
+/* ================= CARDS ================= */
+
+.cards-section{
+padding:24px 16px;
+display:grid;
+gap:16px;
+}
+
+.event-card{
+background:white;
+border-radius:16px;
+padding:20px;
+box-shadow:0 2px 8px rgba(0,0,0,0.06);
+border:1px solid #e5e7eb;
+}
+
+.card-header{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+}
+
+.card-header-icon{
+width:36px;
+height:36px;
+background:#e0e7ff;
+color:#3b82f6;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card-header h3{
+font-size:16px;
+font-weight:600;
+}
+
+.tag{
+font-size:11px;
+color:#666;
+background:#f3f4f6;
+padding:2px 8px;
+border-radius:12px;
+}
+
+.event-card p{
+font-size:13px;
+color:#666;
+margin-bottom:16px;
+line-height:1.5;
+}
+
+.rules-title{
+font-size:13px;
+font-weight:600;
+color:#444;
+margin-bottom:8px;
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.rules-list{
+list-style:none;
+font-size:12px;
+color:#555;
+margin-bottom:16px;
+}
+
+.rules-list li{
+margin-bottom:6px;
+position:relative;
+padding-left:12px;
+}
+
+.rules-list li::before{
+content:'•';
+position:absolute;
+left:0;
+color:#8b5cf6;
+}
+
+.info-row{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:12px;
+color:#555;
+margin-bottom:8px;
+}
+
+.info-row i{
+color:#8b5cf6;
+width:14px;
+}
+
+/* ================= ADMIN BUTTONS ================= */
+
+.admin-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:16px;
+margin-bottom:16px;
+}
+
+.edit-btn,
+.update-btn,
+.manage-btn{
+border:none;
+padding:10px 14px;
+border-radius:8px;
+color:white;
+font-size:13px;
+font-weight:600;
+cursor:pointer;
+}
+
+.edit-btn{
+background:#2196f3;
+}
+
+.update-btn{
+background:#7b5cff;
+}
+
+.manage-btn{
+background:#14cba8;
+}
+
+.edit-panel{
+display:none;
+margin-top:15px;
+padding:20px;
+background:#f8fafc;
+border:1px solid #e5e7eb;
+border-radius:12px;
+}
+
+.edit-panel input,
+.edit-panel textarea{
+width:100%;
+padding:10px;
+margin:8px 0 15px;
+border:1px solid #d1d5db;
+border-radius:8px;
+}
+
+.save-btn{
+background:#14cba8;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* ================= PARTICIPATE BUTTON ================= */
+
+.btn-participate{
+width:100%;
+background:linear-gradient(90deg,#8b5cf6,#3b82f6);
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(min-width:768px){
+
+.cards-section{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="nav-left">
+
+<i class="fa-solid fa-bars menu-icon" id="menuBtn"></i>
+
+<div class="logo">
+
+<div class="logo-icon">
+<i class="fa-solid fa-masks-theater"></i>
+</div>
+
+<div>
+<h3>Gymkhana</h3>
+<p>Cultural Gathering</p>
+</div>
+
+</div>
+
+</div>
+
+<button class="btn-register-nav">
+Admin Panel
+</button>
+
+</nav>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+
+<div class="logo">
+
+<div class="logo-icon">
+<i class="fa-solid fa-masks-theater"></i>
+</div>
+
+<div>
+<h3>Gymkhana</h3>
+<p>Cultural Gathering</p>
+</div>
+
+</div>
+
+<i class="fa-solid fa-xmark" id="closeBtn"></i>
+
+</div>
+
+<ul class="sidebar-menu">
+
+<li>
+<a href="admin-eventhome.html">
+<i class="fa-solid fa-house"></i>
+Home
+</a>
+</li>
+
+<li class="active">
+<a href="admin-singing.html">
+<i class="fa-solid fa-microphone"></i>
+Singing
+</a>
+</li>
+
+<li>
+<a href="admin-dancing.html">
+<i class="fa-solid fa-music"></i>
+Dancing
+</a>
+</li>
+
+<li>
+<a href="admin-anchoring.html">
+<i class="fa-solid fa-bullhorn"></i>
+Anchoring
+</a>
+</li>
+
+<li>
+<a href="admin-schedule.html">
+<i class="fa-regular fa-calendar"></i>
+Schedule
+</a>
+</li>
+
+<li>
+<a href="admin-winners.html">
+<i class="fa-solid fa-trophy"></i>
+Winners
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- ================= HERO ================= -->
+
+<section class="singing-hero">
+
+<span class="badge-singing">
+Admin Singing Panel
+</span>
+
+<h1>
+Manage Singing Events
+</h1>
+
+<p>
+Edit rules, manage participants,
+update schedules and coordinators.
+</p>
+
+</section>
+
+<!-- ================= CARDS ================= -->
+
+<section class="cards-section">
+
+<!-- SOLO SINGING -->
+
+<div class="event-card">
+
+<div class="card-header">
+
+<div class="card-header-icon">
+<i class="fa-solid fa-microphone"></i>
+</div>
+
+<div>
+<h3>Solo Singing</h3>
+<span class="tag">Solo</span>
+</div>
+
+</div>
+
+<p>
+Manage solo singing event details,
+rules and registrations.
+</p>
+
+<div class="rules-title">
+<i class="fa-solid fa-list-check"></i>
+Rules
+</div>
+
+<ul class="rules-list">
+
+<li>Time limit: 4 minutes</li>
+<li>Any language allowed</li>
+<li>Backing track required</li>
+<li>Judging on rhythm and pitch</li>
+
+</ul>
+
+<div class="info-row">
+<i class="fa-regular fa-calendar"></i>
+12 Sept, 10:00 AM
+</div>
+
+<div class="info-row">
+<i class="fa-solid fa-location-dot"></i>
+Main Auditorium
+</div>
+
+<div class="info-row">
+<i class="fa-solid fa-user"></i>
+Prof. Anjali Mehta
+</div>
+
+<!-- ADMIN BUTTONS -->
+
+<div class="admin-buttons">
+
+<button class="edit-btn" onclick="toggleSoloEdit()">
+Edit Event
+</button>
+
+
+<button class="update-btn" onclick="toggleSoloRules()">
+Update Event
+</button>
+
+
+</div>
+
+<button class="btn-participate"
+onclick="window.location.href='solo-registrations.html'">
+View Registrations
+</button>
+
+<div id="soloEditPanel" class="edit-panel">
+
+<h3>Edit Solo Singing Event</h3>
+
+<label>Title</label>
+<input type="text" value="Solo Singing">
+
+<label>Description</label>
+<textarea rows="4">
+Manage solo singing event details.
+</textarea>
+
+<label>Date & Time</label>
+<input type="text" value="12 Sept, 10:00 AM">
+
+<label>Venue</label>
+<input type="text" value="Main Auditorium">
+
+<label>Coordinator</label>
+<input type="text" value="Prof. Anjali Mehta">
+
+<button class="save-btn">
+Save Changes
+</button>
+
+</div>
+
+<div id="soloRulesPanel" class="edit-panel">
+
+<h3>Update Solo Rules</h3>
+
+<textarea rows="8">
+Time limit: 4 minutes
+Any language allowed
+Backing track required
+Judging on rhythm and pitch
+</textarea>
+
+<button class="save-btn">
+Save Rules
+</button>
+
+</div>
+
+</div>
+
+<!-- GROUP SINGING -->
+
+<div class="event-card">
+
+<div class="card-header">
+
+<div class="card-header-icon">
+<i class="fa-solid fa-users"></i>
+</div>
+
+<div>
+<h3>Group Singing</h3>
+<span class="tag">Group</span>
+</div>
+
+</div>
+
+<p>
+Manage group singing competition,
+teams and schedules.
+</p>
+
+<div class="rules-title">
+<i class="fa-solid fa-list-check"></i>
+Rules
+</div>
+
+<ul class="rules-list">
+
+<li>Group size: 3-8 members</li>
+<li>Time limit: 6 minutes</li>
+<li>Original arrangements encouraged</li>
+<li>All members must be students</li>
+
+</ul>
+
+<div class="info-row">
+<i class="fa-regular fa-calendar"></i>
+12 Sept, 2:00 PM
+</div>
+
+<div class="info-row">
+<i class="fa-solid fa-location-dot"></i>
+Main Auditorium
+</div>
+
+<div class="info-row">
+<i class="fa-solid fa-user"></i>
+Prof. Vikram Joshi
+</div>
+
+<!-- ADMIN BUTTONS -->
+
+<div class="admin-buttons">
+
+
+<button class="edit-btn" onclick="toggleGroupEdit()">
+Edit Event
+</button>
+
+
+<button class="update-btn" onclick="toggleGroupRules()">
+Update Rules
+</button>
+
+
+</div>
+
+<button class="btn-participate"
+onclick="window.location.href='group-registrations.html'">
+View Registrations
+</button>
+<div id="groupEditPanel" class="edit-panel">
+
+<h3>Edit Group Singing Event</h3>
+
+<label>Title</label>
+<input type="text" value="Group Singing">
+
+<label>Description</label>
+<textarea rows="4">
+Manage group singing competition.
+</textarea>
+
+<label>Date & Time</label>
+<input type="text" value="12 Sept, 2:00 PM">
+
+<label>Venue</label>
+<input type="text" value="Main Auditorium">
+
+<label>Coordinator</label>
+<input type="text" value="Prof. Vikram Joshi">
+
+<button class="save-btn">
+Save Changes
+</button>
+
+</div>
+
+<div id="groupRulesPanel" class="edit-panel">
+
+<h3>Update Group Rules</h3>
+
+<textarea rows="8">
+Group size: 3-8 members
+Time limit: 6 minutes
+Original arrangements encouraged
+All members must be students
+</textarea>
+
+<button class="save-btn">
+Save Rules
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+/* ================= SIDEBAR ================= */
+
+const menuBtn=document.getElementById('menuBtn');
+const closeBtn=document.getElementById('closeBtn');
+const sidebar=document.getElementById('sidebar');
+const overlay=document.getElementById('overlay');
+
+menuBtn.addEventListener('click',()=>{
+
+sidebar.classList.add('active');
+overlay.classList.add('active');
+
+});
+
+closeBtn.addEventListener('click',()=>{
+
+sidebar.classList.remove('active');
+overlay.classList.remove('active');
+
+});
+
+overlay.addEventListener('click',()=>{
+
+sidebar.classList.remove('active');
+overlay.classList.remove('active');
+
+});
+
+</script>
+<script>
+
+function toggleSoloEdit(){
+let x=document.getElementById("soloEditPanel");
+x.style.display=(x.style.display==="block")?"none":"block";
+}
+
+function toggleSoloRules(){
+let x=document.getElementById("soloRulesPanel");
+x.style.display=(x.style.display==="block")?"none":"block";
+}
+
+function toggleGroupEdit(){
+let x=document.getElementById("groupEditPanel");
+x.style.display=(x.style.display==="block")?"none":"block";
+}
+
+function toggleGroupRules(){
+let x=document.getElementById("groupRulesPanel");
+x.style.display=(x.style.display==="block")?"none":"block";
+}
+
+</script>
+
+</body>
+
+</html>
+```
