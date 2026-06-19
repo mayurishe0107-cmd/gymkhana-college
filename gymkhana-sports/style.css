@@ -2013,3 +2013,34 @@ color:#555;
 .hero p{
     font-size:20px;
 }
+/* Indoor Sports Rules Cards */
+.indoor-rule-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.indoor-rule-card h3{
+    color:#2563eb;
+}
+
+.indoor-rule-card p{
+    color:#555;
+}
+.indoor-rule-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.indoor-rule-card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.indoor-rule-card p{
+    color:#555;
+    line-height:1.6;
+}
