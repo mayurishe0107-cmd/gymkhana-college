@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Badminton</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.hero-badminton{
+    background:linear-gradient(135deg,#4c1d95,#7c3aed,#a855f7);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-badminton::before{
+    content:"🏸";
+    position:absolute;
+    right:60px;
+    top:20px;
+    font-size:120px;
+    opacity:0.08;
+}
+
+.hero-badminton::after{
+    content:"🏆";
+    position:absolute;
+    left:60px;
+    bottom:20px;
+    font-size:120px;
+    opacity:0.08;
+}
+
+.hero-badminton h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.hero-badminton .tagline{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero-badminton p{
+    max-width:750px;
+    margin:auto;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.rules-section{
+    padding:70px 8%;
+    background:#f8fafc;
+}
+
+.rules-title{
+    text-align:center;
+    font-size:40px;
+    color:#7c3aed;
+    margin-bottom:40px;
+}
+
+.rules-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.rule-card{
+    padding:35px;
+    min-height:220px;
+    border-radius:20px;
+    color:white;
+    transition:0.3s;
+}
+
+.rule-card:hover{
+    transform:translateY(-8px);
+}
+
+.card1{
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
+}
+
+.card2{
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+}
+
+.card3{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+.card4{
+    background:linear-gradient(135deg,#f59e0b,#f97316);
+}
+
+.rule-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.rule-card p{
+    line-height:1.7;
+    font-size:17px;
+}
+
+.center-btn{
+    text-align:center;
+    margin-top:40px;
+}
+
+.back-btn{
+    display:inline-block;
+    padding:12px 30px;
+    background:#7c3aed;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    background:#6d28d9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero-badminton">
+
+<h1>🏸 Badminton</h1>
+
+<div class="tagline">
+Speed • Precision • Reflexes
+</div>
+
+<p>
+Badminton is a fast-paced racket sport that develops agility,
+concentration, coordination and quick decision-making skills.
+</p>
+
+</section>
+
+<section class="rules-section">
+
+<h2 class="badminton-rules-title">
+🏸 Badminton Rules
+</h2>
+
+<div class="rules-grid">
+
+<div class="rule-card card1">
+<h3>👥 Singles & Doubles</h3>
+<p>
+Matches can be played in singles (1 player) or doubles
+(2 players per team) format.
+</p>
+</div>
+
+<div class="rule-card card2">
+<h3>🎯 Scoring System</h3>
+<p>
+A match is generally played as best of 3 games.
+Each game is played up to 21 points.
+</p>
+</div>
+
+<div class="rule-card card3">
+<h3>🏸 Service Rules</h3>
+<p>
+The shuttlecock must be served diagonally into the
+opponent's service court.
+</p>
+</div>
+
+<div class="rule-card card4">
+<h3>🤝 Sportsmanship</h3>
+<p>
+Players must respect officials, opponents and follow
+fair play throughout the competition.
+</p>
+</div>
+
+</div>
+
+<div class="center-btn">
+<a href="outdoor.html" class="back-btn">
+⬅ Back to Outdoor Sports
+</a>
+</div>
+
+</section>
+
+</body>
+</html>
