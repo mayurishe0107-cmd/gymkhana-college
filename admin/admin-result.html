@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Live Results</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/*=========================
+RESET
+=========================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f7fc;
+color:#111827;
+}
+
+/*=========================
+TOPBAR
+=========================*/
+
+.topbar{
+
+height:72px;
+
+background:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 22px;
+
+box-shadow:0 2px 12px rgba(0,0,0,.05);
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+}
+
+.menu{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+background:#f3f4f6;
+
+border-radius:10px;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.search{
+
+width:45%;
+
+height:42px;
+
+padding:0 18px;
+
+border:none;
+
+background:#f3f4f6;
+
+border-radius:30px;
+
+outline:none;
+
+font-size:14px;
+
+}
+
+.notify{
+
+position:relative;
+
+font-size:20px;
+
+}
+
+.notify span{
+
+position:absolute;
+
+top:-6px;
+
+right:-8px;
+
+background:#ef4444;
+
+color:#fff;
+
+width:18px;
+
+height:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+font-size:11px;
+
+}
+
+.admin{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.avatar{
+
+width:42px;
+
+height:42px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#7c3aed,#4f46e5);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:700;
+
+color:#fff;
+
+}
+
+.admin h5{
+
+font-size:14px;
+
+}
+
+.admin p{
+
+font-size:12px;
+
+color:#6b7280;
+
+}
+
+/*=========================
+HERO
+=========================*/
+
+.hero{
+
+margin:30px;
+
+padding:40px;
+
+border-radius:24px;
+
+background:linear-gradient(135deg,#ffffff,#eef5ff);
+
+box-shadow:0 12px 30px rgba(0,0,0,.05);
+
+}
+
+.badge{
+
+display:inline-block;
+
+background:#dcfce7;
+
+color:#15803d;
+
+padding:8px 16px;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+}
+
+.hero h1{
+
+font-size:38px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.hero span{
+
+color:#4f46e5;
+
+}
+
+.hero p{
+
+max-width:700px;
+
+font-size:15px;
+
+color:#6b7280;
+
+line-height:1.8;
+
+}
+
+/*=========================
+STATISTICS
+=========================*/
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:22px;
+
+padding:0 30px 30px;
+
+}
+
+.stat-card{
+
+background:#fff;
+
+padding:28px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+transition:.3s;
+
+}
+
+.stat-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.stat-card h4{
+
+font-size:15px;
+
+color:#6b7280;
+
+margin-bottom:12px;
+
+}
+
+.stat-card h2{
+
+font-size:34px;
+
+color:#4f46e5;
+
+margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+font-size:13px;
+
+color:#9ca3af;
+
+}
+
+/*=========================
+SECTION TITLE
+=========================*/
+
+.section-title{
+
+font-size:30px;
+
+font-weight:700;
+
+margin:10px 30px 25px;
+
+color:#111827;
+
+}
+/*=========================
+RESULT CARDS
+=========================*/
+
+.result-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+
+padding:0 30px 35px;
+
+}
+
+.result-card{
+
+background:#fff;
+
+padding:28px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+transition:.3s;
+
+}
+
+.result-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.position{
+
+font-size:15px;
+
+font-weight:600;
+
+color:#4f46e5;
+
+margin-bottom:18px;
+
+}
+
+.result-card h2{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+color:#111827;
+
+}
+
+.result-card p{
+
+color:#6b7280;
+
+margin-bottom:18px;
+
+line-height:1.6;
+
+}
+
+.status{
+
+display:inline-block;
+
+padding:8px 16px;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:600;
+
+margin-bottom:22px;
+
+}
+
+.published{
+
+background:#dcfce7;
+
+color:#15803d;
+
+}
+
+.pending{
+
+background:#fef3c7;
+
+color:#b45309;
+
+}
+
+.buttons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+margin-top:15px;
+
+}
+
+.view,
+.publish,
+.hide{
+
+text-decoration:none;
+
+border:none;
+
+padding:12px;
+
+border-radius:10px;
+
+font-size:15px;
+
+font-weight:600;
+
+cursor:pointer;
+
+text-align:center;
+
+}
+
+.view{
+
+background:#4f46e5;
+
+color:#fff;
+
+}
+
+.publish{
+
+background:#16a34a;
+
+color:#fff;
+
+}
+
+.hide{
+
+background:#dc2626;
+
+color:#fff;
+
+}
+
+.control-card{
+
+margin:0 30px 40px;
+
+background:#fff;
+
+padding:30px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.certificate,
+.download,
+.declare{
+
+padding:14px 24px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:15px;
+
+font-weight:600;
+
+cursor:pointer;
+
+}
+
+.certificate{
+
+background:#7c3aed;
+
+color:white;
+
+}
+
+.download{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+.declare{
+
+background:#16a34a;
+
+color:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<button class="menu">
+
+☰
+
+</button>
+
+<input
+type="text"
+class="search"
+placeholder="Search Result..."
+>
+
+<div class="notify">
+
+🔔
+
+<span>2</span>
+
+</div>
+
+<div class="admin">
+
+<div class="avatar">
+
+AD
+
+</div>
+
+<div>
+
+<h5>Admin</h5>
+
+<p>Election Board</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="badge">
+
+🏆 Election Completed
+
+</div>
+
+<h1>
+
+Manage
+
+<span>Live Results</span>
+
+</h1>
+
+<p>
+
+Publish election results, declare winners, generate winner certificates and manage the visibility of Gymkhana Election 2026 results from a single dashboard.
+
+</p>
+
+</div>
+
+<!-- STATISTICS -->
+
+<div class="stats">
+
+<div class="stat-card">
+
+<h4>Total Positions</h4>
+
+<h2>8</h2>
+
+<p>Available election positions</p>
+
+</div>
+
+<div class="stat-card">
+
+<h4>Results Published</h4>
+
+<h2>5</h2>
+
+<p>Already published</p>
+
+</div>
+
+<div class="stat-card">
+
+<h4>Pending Results</h4>
+
+<h2>3</h2>
+
+<p>Awaiting publication</p>
+
+</div>
+
+<div class="stat-card">
+
+<h4>Winners Declared</h4>
+
+<h2>5</h2>
+
+<p>Officially announced</p>
+
+</div>
+
+</div>
+
+<div class="section-title">
+
+Position Results
+
+</div>
+<!-- RESULT CARDS -->
+
+<div class="result-grid">
+
+<!-- PRESIDENT -->
+
+<div class="result-card">
+
+<div class="position">
+
+👑 President
+
+</div>
+
+<h2>
+
+Mayuri Shewale
+
+</h2>
+
+<p>
+
+Winner • 856 Votes
+
+</p>
+
+<span class="status published">
+
+🟢 Published
+
+</span>
+
+<div class="buttons">
+
+<a href="view-result.html" class="view">
+
+View Result
+
+</a>
+
+<button class="publish">
+
+Publish
+
+</button>
+
+<button class="hide">
+
+Hide
+
+</button>
+
+</div>
+
+</div>
+
+<!-- VICE PRESIDENT -->
+
+<div class="result-card">
+
+<div class="position">
+
+🥈 Vice President
+
+</div>
+
+<h2>
+
+Rahul Patil
+
+</h2>
+
+<p>
+
+Winner • 742 Votes
+
+</p>
+
+<span class="status pending">
+
+🟡 Pending
+
+</span>
+
+<div class="buttons">
+
+<a href="view-result.html" class="view">
+
+View Result
+
+</a>
+
+<button class="publish">
+
+Publish
+
+</button>
+
+<button class="hide">
+
+Hide
+
+</button>
+
+</div>
+
+</div>
+
+<!-- SECRETARY -->
+
+<div class="result-card">
+
+<div class="position">
+
+📋 Secretary
+
+</div>
+
+<h2>
+
+Sneha More
+
+</h2>
+
+<p>
+
+Winner • 693 Votes
+
+</p>
+
+<span class="status published">
+
+🟢 Published
+
+</span>
+
+<div class="buttons">
+
+<a href="view-result.html" class="view">
+
+View Result
+
+</a>
+
+<button class="publish">
+
+Publish
+
+</button>
+
+<button class="hide">
+
+Hide
+
+</button>
+
+</div>
+
+</div>
+
+<!-- TREASURER -->
+
+<div class="result-card">
+
+<div class="position">
+
+💰 Treasurer
+
+</div>
+
+<h2>
+
+Aarav Shah
+
+</h2>
+
+<p>
+
+Winner • 648 Votes
+
+</p>
+
+<span class="status pending">
+
+🟡 Pending
+
+</span>
+
+<div class="buttons">
+
+<a href="view-result.html" class="view">
+
+View Result
+
+</a>
+
+<button class="publish">
+
+Publish
+
+</button>
+
+<button class="hide">
+
+Hide
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section-title">
+
+Winner Management
+
+</div>
+
+
+<div class="control-card">
+
+<button class="certificate">
+
+🏆 Generate Winner Certificate
+
+</button>
+
+<button class="download">
+
+📄 Download Result PDF
+
+</button>
+
+<button class="declare">
+
+🎉 Declare All Winners
+
+</button>
+
+</div>
+</body>
+</html>

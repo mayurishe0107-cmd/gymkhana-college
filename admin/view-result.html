@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>View Result</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f7fc;
+color:#111827;
+}
+
+.topbar{
+
+height:72px;
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 25px;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+
+}
+
+.back{
+
+text-decoration:none;
+color:#4f46e5;
+font-weight:600;
+
+}
+
+.container{
+
+max-width:1000px;
+margin:35px auto;
+padding:0 20px;
+
+}
+
+.card{
+
+background:#fff;
+padding:30px;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+margin-bottom:30px;
+
+}
+
+.card h2{
+
+font-size:30px;
+margin-bottom:20px;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+th{
+
+background:#eef2ff;
+padding:15px;
+text-align:left;
+
+}
+
+td{
+
+padding:15px;
+border-bottom:1px solid #eee;
+
+}
+
+.progress{
+
+width:100%;
+height:10px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+.progress div{
+
+height:100%;
+background:#4f46e5;
+
+}
+
+.winner{
+
+background:#dcfce7;
+padding:20px;
+border-radius:15px;
+text-align:center;
+margin-top:30px;
+
+}
+
+.winner h3{
+
+font-size:28px;
+color:#15803d;
+margin-bottom:10px;
+
+}
+
+.actions{
+
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+
+}
+
+.actions button{
+
+padding:14px 24px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:15px;
+font-weight:600;
+
+}
+
+.publish{
+
+background:#16a34a;
+color:white;
+
+}
+
+.hide{
+
+background:#dc2626;
+color:white;
+
+}
+
+.certificate{
+
+background:#7c3aed;
+color:white;
+
+}
+
+.download{
+
+background:#2563eb;
+color:white;
+
+}
+
+footer{
+
+margin-top:40px;
+background:#1e3a8a;
+color:#fff;
+text-align:center;
+padding:18px;
+
+}
+
+@media(max-width:768px){
+
+.actions{
+
+flex-direction:column;
+
+}
+
+.actions button{
+
+width:100%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+<h2>Election Result</h2>
+
+<a href="admin-results.html" class="back">
+
+← Back
+
+</a>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>
+
+👑 President Election Result
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Candidate</th>
+
+<th>Votes</th>
+
+<th>Vote %</th>
+
+</tr>
+
+<tr>
+
+<td>Mayuri Shewale</td>
+
+<td>856</td>
+
+<td>
+
+<div class="progress">
+
+<div style="width:67%"></div>
+
+</div>
+
+67%
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Rahul Patil</td>
+
+<td>421</td>
+
+<td>
+
+<div class="progress">
+
+<div style="width:33%"></div>
+
+</div>
+
+33%
+
+</td>
+
+</tr>
+
+</table>
+
+<div class="winner">
+
+<h3>
+
+🏆 Winner
+
+</h3>
+
+<h2>
+
+Mayuri Shewale
+
+</h2>
+
+<p>
+
+President • 856 Votes
+
+</p>
+
+</div>
+
+<div class="actions">
+
+<button class="publish"
+
+onclick="alert('Result Published Successfully')">
+
+📢 Publish Result
+
+</button>
+
+<button class="hide"
+
+onclick="alert('Result Hidden Successfully')">
+
+🙈 Hide Result
+
+</button>
+
+<button class="certificate"
+
+onclick="alert('Winner Certificate Generated')">
+
+🏅 Generate Certificate
+
+</button>
+
+<button class="download"
+
+onclick="alert('Downloading Result PDF...')">
+
+📄 Download PDF
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 College Gymkhana Election Board
+
+</footer>
+
+</body>
+
+</html>
