@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gymkhana Admin Home</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+/* ================= ADMIN TOP BAR ================= */
+
+.admin-bar{
+    width:100%;
+    background:#08122f;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    position:sticky;
+    top:0;
+    z-index:99999;
+}
+
+.admin-title{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.admin-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.admin-buttons button{
+    border:none;
+    background:#6c4cff;
+    color:white;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.admin-buttons button:hover{
+    transform:scale(1.05);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    width:100%;
+    background:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#6c4cff;
+}
+
+.nav-right{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.search{
+    padding:10px 20px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    width:250px;
+}
+
+.profile{
+    background:#6c4cff;
+    color:white;
+    padding:10px 20px;
+    border-radius:10px;
+}
+
+/* ================= LIVE SCORE ================= */
+
+.live-score{
+    background:white;
+    margin:20px;
+    padding:15px;
+    border-radius:15px;
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    font-size:14px;
+    color:#555;
+}
+
+/* ================= HERO SECTION ================= */
+
+.hero{
+    margin:20px;
+    height:500px;
+    border-radius:35px;
+    overflow:hidden;
+    background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+.hero-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    padding:80px;
+}
+
+.tag{
+    background:#6c4cff;
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:20px;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.hero-content h1{
+    font-size:70px;
+    line-height:80px;
+}
+
+.purple{
+    color:#8a70ff;
+}
+
+.hero-content p{
+    margin-top:20px;
+    max-width:600px;
+    font-size:20px;
+}
+
+.hero-buttons{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+}
+
+.btn-white{
+    background:white;
+    padding:15px 30px;
+    border:none;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-dark{
+    background:rgba(255,255,255,0.2);
+    color:white;
+    border:1px solid white;
+    padding:15px 30px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card h2{
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+.card p{
+    color:#666;
+    line-height:28px;
+}
+
+/* ================= BOTTOM BUTTONS ================= */
+
+.bottom-controls{
+    margin-top:30px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.bottom-controls button{
+    border:none;
+    padding:10px 16px;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.bottom-controls button:hover{
+    transform:scale(1.05);
+}
+
+.edit-btn{
+    background:#0984e3;
+}
+
+.delete-btn{
+    background:#ff4d4d;
+}
+
+.update-btn{
+    background:#6c5ce7;
+}
+
+.add-btn{
+    background:#00b894;
+}
+
+/* ================= TITLES ================= */
+
+.section-title{
+    margin:40px 20px 20px;
+    font-size:35px;
+    font-weight:bold;
+}
+
+/* ================= STANDINGS ================= */
+
+.standings{
+    margin:20px;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:20px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+
+.rank{
+    background:#f4e3a2;
+    padding:10px 15px;
+    border-radius:10px;
+}
+
+/* ================= SCHEDULE ================= */
+
+.schedule{
+    margin:20px;
+    background:#08122f;
+    color:white;
+    padding:40px;
+    border-radius:25px;
+}
+
+.schedule h2{
+    margin-bottom:30px;
+}
+
+.event{
+    margin-bottom:25px;
+}
+
+.time{
+    color:#8a70ff;
+    font-size:14px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-section{
+    width:100%;
+    padding:40px;
+    background:#f5f5f5;
+}
+
+.gallery-title{
+    text-align:center;
+    font-size:35px;
+    margin-bottom:30px;
+}
+
+.gallery-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.gallery-item{
+    width:45%;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.gallery-item img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    margin-top:80px;
+    background:white;
+    padding:40px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    color:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.hero{
+    height:auto;
+}
+
+.hero-content{
+    padding:40px;
+}
+
+.hero-content h1{
+    font-size:45px;
+    line-height:55px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.gallery-item{
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= ADMIN BAR ================= -->
+
+<div class="admin-bar">
+
+    <div class="admin-title">
+        ADMIN MODE
+    </div>
+
+    <div class="admin-buttons">
+
+        <button>Events</button>
+        <button>Voting</button>
+        <button>Gallery</button>
+        <button>Notices</button>
+        <button>View Website</button>
+
+    </div>
+
+</div>
+
+<!-- ================= NAVBAR ================= -->
+
+<div class="navbar">
+
+    <div class="logo">
+        Gymkhana Portal
+    </div>
+
+    <div class="nav-right">
+
+        <input
+        type="text"
+        class="search"
+        placeholder="Search for events, participants..."
+        >
+
+        <div class="profile">
+            Admin
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= LIVE SCORE ================= -->
+
+<div class="live-score">
+
+    <div>🔴 LIVE SCORES</div>
+    <div>CRICKET (M) CIVIL 124/3</div>
+    <div>CHESS (W) COMP vs ELEC</div>
+    <div>ROUND 4</div>
+    <div>CARROM (M)</div>
+
+</div>
+
+<!-- ================= HERO ================= -->
+
+<div class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="tag">
+            WELCOME TO GYMKHANA 2026
+        </div>
+
+        <h1>Elevate Every</h1>
+
+        <h1 class="purple">
+            Winning Moment.
+        </h1>
+
+        <p>
+            The official digital portal for managing sports sessions,
+            cultural gatherings and student representative elections.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="btn-white">
+                Explore Events
+            </button>
+
+            <button class="btn-dark">
+                Cast Vote
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= MODULES ================= -->
+
+<div class="cards">
+
+    <!-- SPORTS -->
+
+    <div class="card">
+
+        <h2>SPORTS SESSION</h2>
+
+        <p>
+            Track matches, manage team participants,
+            and view live scoreboards.
+        </p>
+
+        <div class="bottom-controls">
+
+          <button class="edit-btn"
+onclick="window.location.href='admin-sports_dashboard.html'">
+                Edit
+            </button>
+
+         <button class="edit-btn"
+onclick="window.location.href='admin-sports_dashboard.html'">
+                Edit
+            </button>
+
+           <button class="edit-btn"
+onclick="window.location.href='admin-sports_dashboard.html'">
+                Edit
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CULTURAL -->
+
+    <div class="card">
+
+        <h2>CULTURAL GATHERING</h2>
+
+        <p>
+            Register for singing, dancing and
+            anchoring events.
+        </p>
+
+        <div class="bottom-controls">
+
+            <button class="edit-btn"
+onclick="window.location.href='admin-eventhome.html'">
+                Edit
+            </button>
+
+            <button class="delete-btn"
+onclick="window.location.href='admin-eventhome.html'">
+                Delete
+            </button>
+
+            <button class="update-btn"
+onclick="window.location.href='admin-eventhome.html'">
+                Manage
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- VOTING -->
+
+    <div class="card">
+
+        <h2>VOTING SYSTEM</h2>
+
+        <p>
+            Exclusive election system for
+            gymkhana secretaries.
+        </p>
+
+              <div class="bottom-controls">
+
+            <button class="edit-btn"
+onclick="window.location.href='admin-voting-dashboard.html'">
+                Edit
+            </button>
+
+            <button class="delete-btn"
+onclick="window.location.href='admin-voting-dashboard.html'">
+                Delete
+            </button>
+
+            <button class="update-btn"
+onclick="window.location.href='admin-voting-dashboard.html'">
+                Manage
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!-- ================= BULLETINS ================= -->
+
+<div class="section-title">
+    Important Bulletins
+</div>
+
+<div class="cards">
+
+    <!-- NOTICE -->
+
+    <div class="card">
+
+        <h2>NOTICE BOARD</h2>
+
+        <p>
+            View latest college notices including admission dates,
+            departmental programs and student updates.
+        </p>
+
+        <div class="bottom-controls">
+
+           <button class="add-btn"
+onclick="window.location.href='admin-notice.html'">
+
+Add Notice
+
+</button>
+
+<button class="delete-btn"
+onclick="window.location.href='admin-notice.html'">
+
+Delete Notice
+
+</button>
+
+<button class="update-btn"
+onclick="window.location.href='admin-notice.html'">
+
+Manage Notices
+
+</button>
+
+
+        </div>
+
+    </div>
+
+<!-- ================= ACADEMIC CALENDAR ================= -->
+
+<style>
+
+.calendar-buttons{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.edit-btn,
+.update-btn,
+.manage-btn{
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background: #2196f3;
+}
+
+.update-btn{
+    background: #7b5cff;
+}
+
+.manage-btn{
+    background: #0d6efd;
+}
+
+</style>
+
+<div class="card">
+
+    <h2>ACADEMIC<br>CALENDAR</h2>
+
+    <p>
+        Access the official academic
+        calendar of Government
+        Polytechnic Nashik.
+    </p>
+
+    <div class="calendar-buttons">
+
+        <button class="edit-btn"
+        onclick="window.location.href='admin-calendar.html'">
+            Edit
+        </button>
+
+        <button class="update-btn"
+        onclick="window.location.href='admin-calendar.html'">
+            Update PDF
+        </button>
+
+        <button class="manage-btn"
+        onclick="window.location.href='admin-calendar.html'">
+            Manage Calendar
+        </button>
+
+    </div>
+
+</div>
+    <!-- TIMETABLE -->
+
+    <div class="card">
+
+        <h2>DEPARTMENT TIMETABLE</h2>
+
+        <p>
+            Browse all departments and view their latest timetable PDFs.
+        </p>
+
+        <div class="bottom-controls">
+
+            <button class="add-btn"
+onclick="window.location.href='admin-timetable.html'">
+
+Upload Timetable
+
+</button>
+
+<button class="delete-btn"
+onclick="window.location.href='admin-timetable.html'">
+
+Delete Timetable
+
+</button>
+
+<button class="update-btn"
+onclick="window.location.href='admin-timetable.html'">
+
+Manage Timetable
+
+</button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CHAMPIONSHIP STANDINGS ================= -->
+
+<style>
+
+.standings-section{
+    padding: 20px;
+}
+
+.section-title{
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.standings-card{
+    background: #fff;
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.standings-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.standings-table th{
+    text-align: left;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid #eee;
+}
+
+.standings-table td{
+    padding: 20px 18px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 18px;
+}
+
+.rank-badge{
+    background: #f3e3a1;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.standing-buttons{
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.edit-btn,
+.update-btn,
+.manage-btn{
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background: #2196f3;
+}
+
+.update-btn{
+    background: #7b5cff;
+}
+
+.manage-btn{
+    background: #0d6efd;
+}
+
+</style>
+
+<section class="standings-section">
+
+    <h2 class="section-title">Championship Standings</h2>
+
+    <div class="standings-card">
+
+        <table class="standings-table">
+
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Department</th>
+                    <th>Total Points</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><span class="rank-badge">1</span></td>
+                    <td>Mechanical</td>
+                    <td>450</td>
+                </tr>
+
+                <tr>
+                    <td><span class="rank-badge">2</span></td>
+                    <td>Computer</td>
+                    <td>420</td>
+                </tr>
+
+                <tr>
+                    <td><span class="rank-badge">3</span></td>
+                    <td>Information Technology</td>
+                    <td>380</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Civil</td>
+                    <td>310</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>Electrical</td>
+                    <td>290</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="standing-buttons">
+
+            <button class="edit-btn"
+            onclick="window.location.href='admin-standings.html'">
+                Edit Points
+            </button>
+
+            <button class="update-btn"
+            onclick="window.location.href='admin-standings.html'">
+                Update Table
+            </button>
+
+            <button class="manage-btn"
+            onclick="window.location.href='admin-standings.html'">
+                Manage Rankings
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= UPCOMING SCHEDULE ================= -->
+
+<style>
+
+.schedule-section{
+    padding: 20px;
+}
+
+.schedule-box{
+    background: #020b3d;
+    color: white;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.schedule-box h2{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.event{
+    margin-bottom: 25px;
+}
+
+.time{
+    color: #8f7cff;
+    margin-bottom: 5px;
+}
+
+.event h3{
+    font-size: 28px;
+}
+
+.schedule-buttons{
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.add-btn,
+.edit-btn,
+.manage-btn{
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-btn{
+    background: #14cba8;
+}
+
+.edit-btn{
+    background: #2196f3;
+}
+
+.manage-btn{
+    background: #7b5cff;
+}
+
+</style>
+
+<section class="schedule-section">
+
+    <div class="schedule-box">
+
+        <h2>Upcoming Schedule</h2>
+
+        <div class="event">
+            <div class="time">10:00 AM</div>
+            <h3>CR Verification Audit</h3>
+        </div>
+
+        <div class="event">
+            <div class="time">02:00 PM</div>
+            <h3>Football Prelims</h3>
+        </div>
+
+        <div class="event">
+            <div class="time">04:30 PM</div>
+            <h3>Solo Singing Auditions</h3>
+        </div>
+
+        <div class="schedule-buttons">
+
+            <button class="add-btn"
+            onclick="window.location.href='admin-schedule.html'">
+                Add Event
+            </button>
+
+            <button class="edit-btn"
+            onclick="window.location.href='admin-schedule.html'">
+                Edit Schedule
+            </button>
+
+            <button class="manage-btn"
+            onclick="window.location.href='admin-schedule.html'">
+                Manage Events
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery-section">
+
+<h2 class="gallery-title">
+    Campus Gallery
+</h2>
+
+<div class="gallery-container">
+
+    <div class="gallery-item">
+        <img src="gymkhana-home/gallery1.jpg">
+    </div>
+
+    <div class="gallery-item">
+        <img src="gymkhana-home/gallery2.jpg">
+    </div>
+
+  
+</div>
+
+<div class="bottom-controls" style="justify-content:center; margin-top:40px;">
+
+ <button class="add-btn"
+onclick="window.location.href='admin-gallery.html'">
+
+Upload Images
+
+</button>
+
+<button class="delete-btn"
+onclick="window.location.href='admin-gallery.html'">
+
+Remove Images
+
+</button>
+
+<button class="update-btn"
+onclick="window.location.href='admin-gallery.html'">
+
+Manage Gallery
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<div class="footer">
+
+<div>
+    <h3>Gymkhana Portal</h3>
+    <p>© 2026 Government Polytechnic Nashik</p>
+</div>
+
+<div>Privacy Policy</div>
+<div>Terms of Service</div>
+<div>Help Desk</div>
+
+</div>
+
+</body>
+</html>
