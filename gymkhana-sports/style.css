@@ -407,7 +407,7 @@ td{
     font-weight: bold;
 }
 
-/* INDOOR COLORS */
+/* INDOOR COLORS 
 
 .chess-card{
     background: linear-gradient(135deg,#111827,#374151);
@@ -419,10 +419,9 @@ td{
 
 .tt-card{
     background: linear-gradient(135deg,#0f766e,#14b8a6);
-}
+}*/
 
-/* OUTDOOR COLORS */
-
+/* OUTDOOR COLORS *
 .cricket-card{
     background: linear-gradient(135deg,#166534,#22c55e);
 }
@@ -434,7 +433,7 @@ td{
 .volleyball-card{
     background: linear-gradient(135deg,#7c2d12,#f97316);
 }
-
+*/
 /* INFO SECTION */
 
 .sports-info-section{
@@ -520,7 +519,7 @@ td{
         font-size: 16px;
     }
 }
-.kabaddi-card{
+/*.kabaddi-card{
     background:linear-gradient(135deg,#7c3aed,#a855f7);
 }
 
@@ -530,7 +529,7 @@ td{
 
 .badminton-card{
     background:linear-gradient(135deg,#0f766e,#14b8a6);
-}
+}*/
 .schedule-table,
 table{
     width:90%;
@@ -916,7 +915,7 @@ footer{
     }
 
 }
-/* CHESS PAGE */
+/* CHESS PAGE 
 
 .hero-chess{
 
@@ -1062,8 +1061,8 @@ font-size:16px;
 width:95%;
 }
 
-}
-/* CARROM PAGE */
+}*/
+/* CARROM PAGE 
 
 .hero-carrom{
 
@@ -1193,8 +1192,8 @@ font-weight:bold;
 
 background:#c2410c;
 
-}
-/* TABLE TENNIS PAGE */
+}*/
+/* TABLE TENNIS PAGE 
 
 .hero-tt{
 
@@ -1324,7 +1323,7 @@ font-weight:bold;
 
 background:#1e3a8a;
 
-}
+}*/
 /* INDOOR CHAMPIONS PAGE */
 
 .champion-hero{
@@ -1582,7 +1581,7 @@ margin:5px 0;
 color:#555;
 
 }
-/* CRICKET PAGE */
+/* CRICKET PAGE 
 
 .hero-cricket{
     background:linear-gradient(135deg,#0f172a,#15803d,#22c55e);
@@ -1692,11 +1691,11 @@ color:#555;
 
 }
 
-/* CRICKET RULE CARD HEADINGS */
+/* CRICKET RULE CARD HEADINGS 
 .rule-card h3{
     color: white;
 }
-/* FOOTBALL PAGE HERO */
+/* FOOTBALL PAGE HERO 
 
 .hero-football{
     background:linear-gradient(135deg,#0f172a,#2563eb,#38bdf8);
@@ -1742,7 +1741,7 @@ color:#555;
     font-size:20px;
     line-height:1.8;
 }
-/* VOLLEYBALL PAGE HERO */
+/* VOLLEYBALL PAGE HERO 
 
 .hero-volleyball{
     background:linear-gradient(135deg,#7c2d12,#ea580c,#f97316);
@@ -1788,7 +1787,7 @@ color:#555;
     font-size:20px;
     line-height:1.8;
 }
-/* OUTDOOR SPORTS HERO COMMON STYLE */
+/* OUTDOOR SPORTS HERO COMMON STYLE 
 
 .hero-kabaddi,
 .hero-football,
@@ -1825,7 +1824,7 @@ color:#555;
 }
 
 
-/* KABADDI HERO */
+/* KABADDI HERO 
 
 .hero-kabaddi{
     background:linear-gradient(135deg,#7f1d1d,#dc2626,#ef4444);
@@ -1850,7 +1849,7 @@ color:#555;
 }
 
 
-/* FOOTBALL HERO */
+/* FOOTBALL HERO 
 
 .hero-football{
     background:linear-gradient(135deg,#0f172a,#2563eb,#38bdf8);
@@ -1875,7 +1874,7 @@ color:#555;
 }
 
 
-/* VOLLEYBALL HERO */
+/* VOLLEYBALL HERO 
 
 .hero-volleyball{
     background:linear-gradient(135deg,#7c2d12,#ea580c,#f97316);
@@ -1900,7 +1899,7 @@ color:#555;
 }
 
 
-/* MOBILE RESPONSIVE */
+/* MOBILE RESPONSIVE 
 
 @media(max-width:768px){
 
@@ -1917,7 +1916,7 @@ color:#555;
     }
 
 }
-/* FOOTBALL PAGE */
+/* FOOTBALL PAGE 
 
 .football-rules-title{
     text-align:center;
@@ -1925,7 +1924,7 @@ color:#555;
     color:#2563eb;
     margin-bottom:40px;
 }
-/* KABADDI PAGE */
+/* KABADDI PAGE 
 
 .kabaddi-rules-title{
     text-align:center;
@@ -1933,15 +1932,15 @@ color:#555;
     color:#dc2626;
     margin-bottom:40px;
 }
-/* VOLLEYBALL PAGE */
+/* VOLLEYBALL PAGE 
 
 .volleyball-rules-title{
     text-align:center;
     font-size:40px;
     color:#ea580c;
     margin-bottom:40px;
-}
-/* BADMINTON HERO */
+}*/
+/* BADMINTON HERO 
 
 .hero-badminton{
     background:linear-gradient(135deg,#4c1d95,#7c3aed,#a855f7);
@@ -1987,15 +1986,15 @@ color:#555;
     font-size:20px;
     line-height:1.8;
 }
-
-/* BADMINTON RULES TITLE */
+*/
+/* BADMINTON RULES TITLE 
 
 .badminton-rules-title{
     text-align:center;
     font-size:40px;
     color:#7c3aed;
     margin-bottom:40px;
-}
+}*/
 /* OUTDOOR PAGES HERO SECTION */
 
 .hero{
@@ -2013,7 +2012,7 @@ color:#555;
 .hero p{
     font-size:20px;
 }
-/* Indoor Sports Rules Cards */
+/* Indoor Sports Rules Cards 
 .indoor-rule-card{
     background:white;
     padding:25px;
@@ -2043,4 +2042,140 @@ color:#555;
 .indoor-rule-card p{
     color:#555;
     line-height:1.6;
+}
+@media(max-width:768px){
+
+    .rules-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-badminton h1{
+        font-size:40px;
+    }
+
+}
+@media(max-width:768px){
+
+    .rules-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-athletics h1{
+        font-size:40px;
+    }
+
+}*/
+/* ================= INDOOR COMPETITIONS ================= */
+
+.competitions-section{
+    width:90%;
+    margin:40px auto;
+    text-align:center;
+}
+
+
+.competitions-section h2{
+    font-size:32px;
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+
+.competitions-list{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+
+.competition-item{
+
+    background:white;
+
+    padding:18px 35px;
+
+    border-radius:15px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#2563eb;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+}
+
+
+.competition-item:hover{
+
+    transform:translateY(-5px);
+
+    background:#eff6ff;
+
+}
+/* AVAILABLE SPORTS SECTION */
+
+.available-sports{
+
+    width:90%;
+    margin:40px auto;
+    text-align:center;
+
+}
+
+
+.available-sports h2{
+
+    font-size:32px;
+    color:#1e3a8a;
+    margin-bottom:30px;
+
+}
+
+
+
+.sports-list{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+
+}
+
+
+
+.sports-list span{
+
+    background:#eff6ff;
+    color:#2563eb;
+
+    padding:15px 25px;
+
+    border-radius:25px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+}
+
+
+
+.sports-list span:hover{
+
+    transform:translateY(-5px);
+
+    background:#2563eb;
+
+    color:white;
+
 }
