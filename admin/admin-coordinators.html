@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Coordinators</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    color:#1e3a8a;
+}
+
+
+/* HEADER */
+
+.page-banner{
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+
+    font-size:40px;
+
+}
+
+
+.page-banner p{
+
+    margin-top:10px;
+    font-size:16px;
+
+}
+
+
+
+/* ADMIN TAG */
+
+.admin-tag{
+
+    text-align:center;
+    margin:25px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+
+
+/* TABLE */
+
+.container{
+
+    width:85%;
+    margin:40px auto;
+
+}
+
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+th{
+
+    background:#2563eb;
+    color:white;
+    padding:15px;
+
+}
+
+
+td{
+
+    padding:15px;
+    text-align:center;
+    color:#475569;
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+
+
+/* BUTTONS */
+
+
+.action-btn{
+
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:8px;
+    color:white;
+    font-size:13px;
+    font-weight:bold;
+    margin:3px;
+    display:inline-block;
+
+}
+
+
+.edit{
+
+    background:#2196f3;
+
+}
+
+
+.update{
+
+    background:#7b5cff;
+
+}
+
+
+.manage{
+
+    background:#14b8a6;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+    margin-top:50px;
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+
+}
+
+
+
+@media(max-width:800px){
+
+.container{
+
+width:95%;
+
+}
+
+
+table{
+
+font-size:12px;
+
+}
+
+
+.action-btn{
+
+display:block;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<section class="page-banner">
+
+<h1>Sports Coordinators</h1>
+
+<p>
+Gymkhana and Sports Department Coordinators
+</p>
+
+</section>
+
+
+<div class="admin-tag">
+
+COORDINATORS ADMIN PANEL
+
+</div>
+
+
+
+<div class="container">
+
+
+<table>
+
+
+<tr>
+
+<th>ID</th>
+<th>Position</th>
+<th>Name</th>
+<th>Contact</th>
+<th>Action</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>1</td>
+<td>Sports Director</td>
+<td>Prof. ABC XYZ</td>
+<td>9876543210</td>
+
+<td>
+
+<a href="edit-coordinators.html?id=1&mode=edit" class="action-btn edit">
+Edit
+</a>
+
+<a href="edit-coordinators.html?id=1&mode=update" class="action-btn update">
+Update
+</a>
+
+<a href="edit-coordinators.html?id=1&mode=manage" class="action-btn manage">
+Manage
+</a>
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>2</td>
+<td>Faculty Coordinator</td>
+<td>Prof. PQR Patil</td>
+<td>9876543211</td>
+
+<td>
+
+<a href="edit-coordinators.html?id=2&mode=edit" class="action-btn edit">
+Edit
+</a>
+
+<a href="edit-coordinators.html?id=2&mode=update" class="action-btn update">
+Update
+</a>
+
+<a href="edit-coordinators.html?id=2&mode=manage" class="action-btn manage">
+Manage
+</a>
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>3</td>
+<td>Student Coordinator</td>
+<td>Rahul Sharma</td>
+<td>9876543212</td>
+
+<td>
+
+<a href="edit-coordinators.html?id=3&mode=edit" class="action-btn edit">
+Edit
+</a>
+
+<a href="edit-coordinators.html?id=3&mode=update" class="action-btn update">
+Update
+</a>
+
+<a href="edit-coordinators.html?id=3&mode=manage" class="action-btn manage">
+Manage
+</a>
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>4</td>
+<td>Assistant Coordinator</td>
+<td>Priya Deshmukh</td>
+<td>9876543213</td>
+
+<td>
+
+<a href="edit-coordinators.html?id=4&mode=edit" class="action-btn edit">
+Edit
+</a>
+
+<a href="edit-coordinators.html?id=4&mode=update" class="action-btn update">
+Update
+</a>
+
+<a href="edit-coordinators.html?id=4&mode=manage" class="action-btn manage">
+Manage
+</a>
+</td>
+
+</tr>
+<tr>
+<td>5</td>
+<td>Gymkhana Head</td>
+<td>Name</td>
+<td>Mobile</td>
+
+<td>
+<a href="edit-coordinators.html?id=5&mode=edit" class="action-btn edit">
+Edit
+</a>
+<a href="edit-coordinators.html?id=5&mode=update" class="action-btn update">
+Update
+</a>
+<a href="edit-coordinators.html?id=5&mode=manage" class="action-btn manage">
+Manage
+</a>
+</td>
+
+</tr>
+
+</table>
+
+<center>
+
+<a href="add-coordinator.html" class="action-btn manage" 
+style="margin-top:30px;padding:12px 20px;">
+
++ Add New Coordinator
+
+</a>
+
+</center>
+</div>
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+</body>
+</html>

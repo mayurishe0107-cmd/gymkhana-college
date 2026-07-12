@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Indoor Registration</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+
+body{
+
+    background:#f8fafc;
+    color:#1e3a8a;
+
+}
+
+
+/* Banner */
+
+.page-banner{
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+
+    font-size:38px;
+
+}
+
+
+.page-banner p{
+
+    margin-top:10px;
+
+}
+
+
+
+/* Admin tag */
+
+.admin-tag{
+
+    text-align:center;
+    margin:25px;
+    color:#2563eb;
+    font-weight:bold;
+
+}
+
+
+
+/* Container */
+
+.container{
+
+    width:85%;
+    margin:30px auto;
+
+}
+
+
+
+/* Cards */
+
+.admin-card{
+
+    background:white;
+    padding:25px;
+    margin-bottom:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.admin-card h2{
+
+    margin-bottom:20px;
+    color:#1e3a8a;
+
+}
+
+
+
+/* Fields */
+
+
+.field-box{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+
+.field-box p{
+
+    color:#475569;
+
+}
+
+
+
+/* Buttons */
+
+
+.btn{
+
+    text-decoration:none;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+    margin-left:5px;
+
+}
+
+
+.edit{
+
+    background:#2196f3;
+
+}
+
+
+.update{
+
+    background:#7b5cff;
+
+}
+
+
+.manage{
+
+    background:#14b8a6;
+
+}
+
+
+/* Settings */
+
+
+.setting-box{
+
+    background:#f1f5f9;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+
+}
+
+
+
+.status{
+
+    color:green;
+    font-weight:bold;
+
+}
+
+
+
+/* Table */
+
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+
+}
+
+
+th{
+
+    background:#2563eb;
+    color:white;
+    padding:12px;
+
+}
+
+
+td{
+
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+/* Footer */
+
+
+footer{
+
+    margin-top:50px;
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+
+}
+
+
+
+@media(max-width:700px){
+
+.container{
+
+width:95%;
+
+}
+
+.field-box{
+
+flex-direction:column;
+gap:10px;
+
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<section class="page-banner">
+
+<h1>🏓 Indoor Sports Registration Admin</h1>
+
+<p>
+Manage registration form and participants
+</p>
+
+</section>
+
+
+
+<div class="admin-tag">
+
+INDOOR REGISTRATION ADMIN PANEL
+
+</div>
+
+
+
+<div class="container">
+
+
+
+<!-- FORM FIELD MANAGEMENT -->
+
+
+<div class="admin-card">
+
+
+<h2>📝 Registration Form Fields</h2>
+
+
+
+<div class="field-box">
+
+<p>Full Name</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Full%20Name" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Full%20Name" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="field-box">
+
+<p>Roll Number / PRN</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Roll%20Number" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Roll%20Number" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="field-box">
+
+<p>Department</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Department" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Department" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="field-box">
+
+<p>Year</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Year" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Year" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="field-box">
+
+<p>Mobile Number</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Mobile%20Number" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Mobile%20Number" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="field-box">
+
+<p>Email ID</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Email%20ID" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Email%20ID" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="field-box">
+
+<p>Sport Selection Dropdown</p>
+
+<div>
+
+<a href="edit-indoor-registration.html?field=Sport%20Selection" class="btn edit">
+Edit
+</a>
+
+<a href="edit-indoor-registration.html?field=Sport%20Selection" class="btn update">
+Update
+</a>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- REGISTRATION SETTINGS -->
+
+
+<div class="admin-card">
+
+
+<h2>⚙ Registration Settings</h2>
+
+
+<div class="setting-box">
+
+Registration Status:
+
+<span class="status">
+OPEN
+</span>
+
+<br><br>
+
+<a href="#" class="btn manage">
+Change Status
+</a>
+
+
+</div>
+
+
+
+<div class="setting-box">
+
+Registration Deadline:
+
+15 July 2026
+
+
+<br><br>
+
+
+<a href="#" class="btn update">
+Update Deadline
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- PARTICIPANTS -->
+
+
+<div class="admin-card">
+
+
+<h2>👥 Registered Participants</h2>
+
+
+<table>
+
+
+<tr>
+
+<th>Name</th>
+<th>PRN</th>
+<th>Department</th>
+<th>Sport</th>
+<th>Action</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>Rahul Sharma</td>
+
+<td>12345</td>
+
+<td>Computer Technology</td>
+
+<td>Chess</td>
+
+
+<td>
+
+<a href="#" class="btn manage">
+View
+</a>
+
+<a href="#" class="btn edit">
+Delete
+</a>
+
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td>Priya Patil</td>
+
+<td>12346</td>
+
+<td>IT</td>
+
+<td>Carrom</td>
+
+
+<td>
+
+<a href="#" class="btn manage">
+View
+</a>
+
+<a href="#" class="btn edit">
+Delete
+</a>
+
+</td>
+
+
+</tr>
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+</body>
+
+</html>

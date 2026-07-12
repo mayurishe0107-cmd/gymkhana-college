@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Indoor Registration</title>
+
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f8fafc;
+color:#1e3a8a;
+}
+
+
+.container{
+
+width:60%;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+h1{
+text-align:center;
+color:#2563eb;
+}
+
+
+label{
+
+display:block;
+margin-top:20px;
+font-weight:bold;
+
+}
+
+
+input,textarea,select{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ddd;
+border-radius:8px;
+
+}
+
+
+textarea{
+
+height:100px;
+
+}
+
+
+button{
+
+margin-top:25px;
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1 id="title">
+Edit Registration
+</h1>
+
+
+<label>
+Field Name
+</label>
+
+<input id="fieldName" type="text">
+
+
+<label>
+Field Description / Value
+</label>
+
+<textarea></textarea>
+
+
+<label>
+Status
+</label>
+
+<select>
+
+<option>Active</option>
+
+<option>Inactive</option>
+
+</select>
+
+
+<button>
+Save Changes
+</button>
+
+
+</div>
+
+
+
+<script>
+
+
+let params=new URLSearchParams(window.location.search);
+
+let field=params.get("field");
+
+
+if(field){
+
+document.getElementById("title").innerHTML=
+"Edit "+field;
+
+document.getElementById("fieldName").value=field;
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

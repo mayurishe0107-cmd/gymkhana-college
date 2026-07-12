@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Indoor Coordinators</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+background:#f8fafc;
+color:#1e3a8a;
+}
+
+
+
+.page-banner{
+
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:white;
+text-align:center;
+padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+font-size:40px;
+}
+
+
+.page-banner p{
+margin-top:10px;
+}
+
+
+
+
+.admin-tag{
+
+text-align:center;
+margin:25px;
+color:#2563eb;
+font-weight:bold;
+
+}
+
+
+
+.container{
+
+width:85%;
+margin:30px auto;
+
+}
+
+
+
+
+.coordinator-card{
+
+background:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:25px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+h2{
+
+margin-bottom:15px;
+
+}
+
+
+
+
+label{
+
+display:block;
+font-weight:bold;
+margin-top:12px;
+
+}
+
+
+
+
+input{
+
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #cbd5e1;
+border-radius:8px;
+
+}
+
+
+
+
+button{
+
+border:none;
+padding:10px 18px;
+border-radius:8px;
+color:white;
+cursor:pointer;
+font-weight:bold;
+margin-top:18px;
+
+}
+
+
+.delete{
+
+background:#ef4444;
+
+}
+
+
+.add{
+
+background:#14b8a6;
+
+}
+
+
+.save{
+
+background:#2563eb;
+
+}
+
+
+
+
+footer{
+
+margin-top:50px;
+background:#2563eb;
+color:white;
+text-align:center;
+padding:15px;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<section class="page-banner">
+
+<h1>👨‍🏫 Indoor Coordinators Admin</h1>
+
+<p>
+Manage indoor sports faculty and student coordinators
+</p>
+
+</section>
+
+
+
+<div class="admin-tag">
+
+INDOOR COORDINATORS ADMIN PANEL
+
+</div>
+
+
+
+
+
+<div class="container" id="coordinatorContainer">
+
+
+
+
+
+<!-- Chess -->
+
+
+<div class="coordinator-card">
+
+
+<h2>♟ Chess</h2>
+
+
+<label>Faculty Coordinator Name</label>
+
+<input value="Prof. __________">
+
+
+
+<label>Faculty Contact</label>
+
+<input value="__________">
+
+
+
+<label>Student Coordinator Name</label>
+
+<input value="Student Name">
+
+
+
+<label>Student Contact</label>
+
+<input value="__________">
+
+
+
+<button class="delete" onclick="deleteCard(this)">
+Delete Sport
+</button>
+
+
+</div>
+
+
+
+
+
+
+<!-- Carrom -->
+
+
+<div class="coordinator-card">
+
+
+<h2>🎯 Carrom</h2>
+
+
+<label>Faculty Coordinator Name</label>
+
+<input value="Prof. __________">
+
+
+
+<label>Faculty Contact</label>
+
+<input value="__________">
+
+
+
+<label>Student Coordinator Name</label>
+
+<input value="Student Name">
+
+
+
+<label>Student Contact</label>
+
+<input value="__________">
+
+
+
+<button class="delete" onclick="deleteCard(this)">
+Delete Sport
+</button>
+
+
+</div>
+
+
+
+
+
+
+<!-- Table Tennis -->
+
+
+<div class="coordinator-card">
+
+
+<h2>🏓 Table Tennis</h2>
+
+
+<label>Faculty Coordinator Name</label>
+
+<input value="Prof. __________">
+
+
+
+<label>Faculty Contact</label>
+
+<input value="__________">
+
+
+
+<label>Student Coordinator Name</label>
+
+<input value="Student Name">
+
+
+
+<label>Student Contact</label>
+
+<input value="__________">
+
+
+
+<button class="delete" onclick="deleteCard(this)">
+Delete Sport
+</button>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<center>
+
+
+<button class="add" onclick="addCoordinator()">
+
++ Add New Coordinator
+
+</button>
+
+
+
+<button class="save">
+
+Save Changes
+
+</button>
+
+
+</center>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+function deleteCard(btn){
+
+btn.parentElement.remove();
+
+}
+
+
+
+
+
+function addCoordinator(){
+
+
+let container=document.getElementById("coordinatorContainer");
+
+
+let card=document.createElement("div");
+
+
+card.className="coordinator-card";
+
+
+card.innerHTML=`
+
+<h2>New Sport</h2>
+
+
+<label>Sport Name</label>
+<input placeholder="Enter Sport Name">
+
+
+<label>Faculty Coordinator Name</label>
+<input placeholder="Enter Faculty Name">
+
+
+<label>Faculty Contact</label>
+<input placeholder="Enter Contact">
+
+
+<label>Student Coordinator Name</label>
+<input placeholder="Enter Student Name">
+
+
+<label>Student Contact</label>
+<input placeholder="Enter Contact">
+
+
+<button class="delete" onclick="deleteCard(this)">
+Delete Sport
+</button>
+
+
+`;
+
+
+container.appendChild(card);
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Achievements</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+
+body{
+
+    background:#f8fafc;
+    color:#1e3a8a;
+
+}
+
+
+/* Banner */
+
+.page-banner{
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+
+    font-size:40px;
+
+}
+
+
+.page-banner p{
+
+    margin-top:10px;
+
+}
+
+
+
+/* Admin tag */
+
+.admin-tag{
+
+    text-align:center;
+    color:#2563eb;
+    font-weight:bold;
+    margin:25px;
+
+}
+
+
+
+/* Cards container */
+
+
+.container{
+
+    width:85%;
+    margin:30px auto;
+
+}
+
+
+
+.achievement-card{
+
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.achievement-card h2{
+
+    color:#1e3a8a;
+    margin-bottom:10px;
+
+}
+
+
+.achievement-card h3{
+
+    color:#be5672;
+    margin-bottom:12px;
+
+}
+
+
+.achievement-card p{
+
+    color:#64748b;
+    line-height:1.5;
+
+}
+
+
+
+.badge{
+
+    display:inline-block;
+    margin-top:15px;
+    background:#2563eb;
+    color:white;
+    padding:7px 15px;
+    border-radius:20px;
+    font-size:13px;
+
+}
+
+
+
+/* Buttons */
+
+
+.buttons{
+
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+
+}
+
+
+.btn{
+
+    text-decoration:none;
+    color:white;
+    padding:8px 15px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+
+}
+
+
+.edit{
+
+    background:#2196f3;
+
+}
+
+
+.update{
+
+    background:#7b5cff;
+
+}
+
+
+.manage{
+
+    background:#14b8a6;
+
+}
+
+
+
+/* Footer */
+
+
+footer{
+
+    margin-top:50px;
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+
+}
+
+
+
+@media(max-width:700px){
+
+.container{
+
+width:95%;
+
+}
+
+
+.buttons{
+
+flex-wrap:wrap;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<section class="page-banner">
+
+<h1>Sports Achievements</h1>
+
+<p>
+Manage sports achievements and trophies
+</p>
+
+</section>
+
+
+
+<div class="admin-tag">
+
+ACHIEVEMENTS ADMIN PANEL
+
+</div>
+
+<div style="text-align:center; margin-bottom:30px;">
+
+<a href="add-achievement.html" 
+style="
+background:#14b8a6;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;">
+➕ Add New Achievement
+</a>
+
+</div>
+
+<div class="container">
+
+
+
+<!-- Achievement 1 -->
+
+
+<div class="achievement-card">
+
+
+<h2>🏆 Intercollege Cricket Championship</h2>
+
+
+<h3>
+College Cricket Team | Cricket
+</h3>
+
+
+<p>
+Won the Intercollege Cricket Championship and remained undefeated throughout the tournament.
+</p>
+
+
+<span class="badge">
+State Level - 2025
+</span>
+
+
+<div class="buttons">
+
+<a href="edit-achievements.html?id=1" class="btn edit">
+Edit
+</a>
+
+<a href="edit-achievements.html?id=1" class="btn update">
+Update
+</a>
+
+<a href="edit-achievements.html?id=1" class="btn manage">
+Manage
+</a>
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- Achievement 2 -->
+
+
+<div class="achievement-card">
+
+
+<h2>⚽ Football Runner-Up</h2>
+
+
+<h3>
+College Football Team | Football
+</h3>
+
+
+<p>
+Achieved runner-up position in the District Football Competition after an excellent performance.
+</p>
+
+
+<span class="badge">
+District Level - 2025
+</span>
+
+
+
+<div class="buttons">
+
+<a href="edit-achievements.html?id=2" class="btn edit">
+Edit
+</a>
+
+<a href="edit-achievements.html?id=2" class="btn update">
+Update
+</a>
+
+
+<a href="edit-achievements.html?id=2" class="btn manage">
+Manage
+</a>
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Achievement 3 -->
+
+
+<div class="achievement-card">
+
+
+<h2>🏸 Badminton Gold Medal</h2>
+
+
+<h3>
+Rahul Sharma | Badminton
+</h3>
+
+
+<p>
+Secured first place in the University Badminton Championship with outstanding gameplay.
+</p>
+
+
+<span class="badge">
+University Level - 2025
+</span>
+
+
+<div class="buttons">
+
+<a href="edit-achievements.html?id=3" class="btn edit">
+Edit
+</a>
+<a href="edit-achievements.html?id=3" class="btn update">
+Update
+</a>
+
+<a href="edit-achievements.html?id=3" class="btn manage">
+Manage
+</a>
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+</body>
+</html>

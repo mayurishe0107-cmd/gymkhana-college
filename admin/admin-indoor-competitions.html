@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Indoor Competitions</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+background:#f8fafc;
+color:#1e3a8a;
+}
+
+
+.page-banner{
+
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:white;
+text-align:center;
+padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+font-size:35px;
+}
+
+
+.container{
+
+width:60%;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+label{
+
+font-weight:bold;
+display:block;
+margin-top:15px;
+
+}
+
+
+input{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #cbd5e1;
+border-radius:8px;
+
+}
+
+
+.sport-box{
+
+display:flex;
+gap:10px;
+margin-top:20px;
+align-items:center;
+
+}
+
+
+.sport-box input{
+
+margin:0;
+
+}
+
+
+.delete{
+
+background:#ef4444;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+
+}
+
+
+.add-btn,
+.save-btn{
+
+margin-top:25px;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+.add-btn{
+
+background:#14b8a6;
+
+}
+
+
+.save-btn{
+
+background:#2563eb;
+
+}
+
+
+footer{
+
+margin-top:50px;
+background:#2563eb;
+color:white;
+text-align:center;
+padding:15px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<section class="page-banner">
+
+<h1>🎯 Edit Indoor Competitions</h1>
+
+<p>
+Add, remove and update indoor sports names
+</p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<h2>Competition List</h2>
+
+
+<div class="sport-box">
+
+<input type="text" value="♟ Chess">
+
+<button class="delete" onclick="deleteCompetition(this)">
+Delete
+</button>
+
+</div>
+
+
+
+<div class="sport-box">
+
+<input type="text" value="🎯 Carrom">
+
+<button class="delete" onclick="deleteCompetition(this)">
+Delete
+</button>
+
+</div>
+
+
+
+<div class="sport-box">
+
+<input type="text" value="🏓 Table Tennis">
+
+<button class="delete" onclick="deleteCompetition(this)">
+Delete
+</button>
+
+</div>
+
+
+
+
+<button class="add-btn" onclick="addCompetition()">
++ Add New Competition
+</button>
+
+
+<br>
+
+
+<button class="save-btn">
+Save Changes
+</button>
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+<script>
+
+function addCompetition(){
+
+    let container = document.querySelector(".container");
+
+
+    let newBox = document.createElement("div");
+
+    newBox.className = "sport-box";
+
+
+    newBox.innerHTML = `
+
+    <input type="text" placeholder="Enter new competition name">
+
+    <button class="delete" onclick="deleteCompetition(this)">
+    Delete
+    </button>
+
+    `;
+
+
+    // Insert before Add button
+    let addButton = document.querySelector(".add-btn");
+
+    container.insertBefore(newBox, addButton);
+
+}
+
+
+
+function deleteCompetition(button){
+
+    button.parentElement.remove();
+
+}
+
+
+</script>
+
+</body>
+
+</html>

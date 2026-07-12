@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Outdoor Sports</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#1e3a8a;
+}
+
+
+/* Banner */
+
+.page-banner{
+
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:white;
+text-align:center;
+padding:45px 20px;
+
+}
+
+.page-banner h1{
+font-size:40px;
+}
+
+.page-banner p{
+margin-top:10px;
+}
+
+
+/* Admin Tag */
+
+.admin-tag{
+
+text-align:center;
+margin:25px;
+color:#2563eb;
+font-weight:bold;
+
+}
+
+
+/* Container */
+
+.container{
+
+width:85%;
+margin:30px auto;
+
+}
+
+
+/* Cards */
+
+.admin-card{
+
+background:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:25px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+.admin-card h2{
+
+margin-bottom:15px;
+
+}
+
+
+/* Buttons */
+
+.btn{
+
+text-decoration:none;
+color:white;
+padding:8px 15px;
+border-radius:8px;
+font-size:13px;
+font-weight:bold;
+margin:5px;
+
+display:inline-block;
+
+}
+
+
+.edit{
+background:#2196f3;
+}
+
+.update{
+background:#7b5cff;
+}
+
+.manage{
+background:#14b8a6;
+}
+
+
+
+/* Sports list */
+
+.sport-item{
+
+background:#f1f5f9;
+padding:15px;
+border-radius:10px;
+margin-bottom:12px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+
+
+/* Footer */
+
+footer{
+
+margin-top:50px;
+background:#2563eb;
+color:white;
+padding:15px;
+text-align:center;
+
+}
+
+
+@media(max-width:700px){
+
+.container{
+width:95%;
+}
+
+.sport-item{
+
+flex-direction:column;
+gap:10px;
+
+}
+
+}
+.sports-list{
+
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+
+}
+
+
+.sports-list span{
+
+background:#f1f5f9;
+padding:12px 18px;
+border-radius:25px;
+color:#1e3a8a;
+font-weight:600;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<section class="page-banner">
+
+<h1>⚽ Outdoor Sports Admin Panel</h1>
+
+<p>
+Manage outdoor sports activities and information
+</p>
+
+</section>
+
+
+
+<div class="admin-tag">
+
+OUTDOOR SPORTS ADMIN PANEL
+
+</div>
+
+
+
+<div class="container">
+
+
+
+<!-- REGISTRATION -->
+
+<div class="admin-card">
+
+
+<h2>🏆 Outdoor Sports Registration</h2>
+
+
+<p>
+Manage outdoor sports registration form and participants.
+</p>
+
+
+<a href="admin-outdoor-registration.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-outdoor-registration.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-outdoor-registration.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+
+
+
+<!-- OUTDOOR COMPETITIONS -->
+
+<div class="admin-card">
+
+<h2>⚽ Outdoor Competitions</h2>
+
+<p>
+Manage available outdoor sports competitions.
+</p>
+
+
+<div class="sports-list">
+
+
+<span>🏏 Cricket</span>
+
+<span>⚽ Football</span>
+
+<span>🏐 Volleyball</span>
+
+<span>🤼 Kabaddi</span>
+
+<span>🏃 Athletics</span>
+
+<span>🏸 Badminton</span>
+
+
+</div>
+
+
+
+<div class="buttons">
+
+
+<a href="admin-outdoor-competition.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-outdoor-competition.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-outdoor-competition.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+<!-- CHAMPIONS -->
+
+
+<div class="admin-card">
+
+
+<h2>🏆 Outdoor Champions</h2>
+
+
+<p>
+Manage outdoor sports winners and achievements.
+</p>
+
+
+<a href="admin-outdoor-champions.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-outdoor-champions.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-outdoor-champions.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+
+
+
+<!-- SCHEDULE -->
+
+
+<div class="admin-card">
+
+
+<h2>📅 Tournament Schedule</h2>
+
+
+<p>
+Manage outdoor match date, time and venue.
+</p>
+
+
+<a href="admin-outdoor-schedule.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-outdoor-schedule.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-outdoor-schedule.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+
+
+
+<!-- COORDINATORS -->
+
+
+<div class="admin-card">
+
+
+<h2>👨‍🏫 Sports Coordinators</h2>
+
+
+<p>
+Manage outdoor faculty and student coordinators.
+</p>
+
+
+<a href="admin-outdoor-coordinators.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-outdoor-coordinators.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-outdoor-coordinators.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+</body>
+
+</html>

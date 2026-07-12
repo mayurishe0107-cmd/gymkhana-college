@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sports Admin Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+body{
+    background:white;
+    color:#1e3a8a;
+}
+
+
+/* HEADER */
+
+.header{
+
+    text-align:center;
+    padding:50px 20px 20px;
+
+}
+
+
+.header h1{
+
+    font-size:40px;
+    color:#1e3a8a;
+
+}
+
+
+.header p{
+
+    color:#64748b;
+    margin-top:10px;
+
+}
+
+
+
+/* ADMIN LABEL */
+
+.admin-tag{
+
+    text-align:center;
+    margin:20px;
+
+    color:#2563eb;
+
+    font-size:14px;
+    font-weight:bold;
+
+}
+
+
+
+/* CATEGORY SECTION */
+
+
+.category-section{
+
+    width:80%;
+
+    margin:30px auto 60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+}
+
+
+
+/* CATEGORY CARDS */
+
+
+.category-card{
+
+    width:300px;
+
+    min-height:160px;
+
+    padding:25px;
+
+    color:white;
+
+    border-radius:20px;
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+
+}
+
+
+
+.category-card h2{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+
+.category-card p{
+
+    font-size:13px;
+
+    line-height:20px;
+
+}
+
+
+
+
+
+/* BUTTONS */
+
+
+.admin-buttons{
+
+    margin-top:18px;
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.edit-btn,
+.update-btn,
+.manage-btn{
+
+    text-decoration:none;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+.edit-btn{
+
+    background:#2196f3;
+
+}
+
+
+.update-btn{
+
+    background:#7b5cff;
+
+}
+
+
+.manage-btn{
+
+    background:#14b8a6;
+
+}
+
+
+
+
+
+/* MODULE SECTION */
+
+
+.modules{
+
+    width:90%;
+
+    margin:auto;
+
+}
+
+
+
+.modules h2{
+
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+/* MODULE CARDS */
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.card{
+
+    padding:35px;
+
+    min-height:220px;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.card h3{
+
+    color:#111;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+    color:#64748b;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+.category-section{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="header">
+
+<h1>Sports Categories</h1>
+
+<p>Manage Indoor and Outdoor Sports Activities</p>
+
+</div>
+
+
+
+<div class="admin-tag">
+
+SPORTS ADMIN PANEL
+
+</div>
+
+
+
+
+
+<!-- SPORTS CATEGORY -->
+
+<section class="category-section">
+
+
+
+<!-- INDOOR -->
+
+<div class="category-card">
+
+
+<h2>🏓 Indoor Sports</h2>
+
+
+<p>
+Manage chess, carrom, table tennis and indoor sports activities.
+</p>
+
+
+
+<div class="admin-buttons">
+
+
+<a href="admin-indoor.html" class="edit-btn">
+Edit
+</a>
+
+
+<a href="admin-indoor.html" class="update-btn">
+Update
+</a>
+
+
+<a href="admin-indoor.html" class="manage-btn">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- OUTDOOR -->
+
+
+<div class="category-card">
+
+
+<h2>⚽ Outdoor Sports</h2>
+
+
+<p>
+Manage cricket, football, volleyball and outdoor events.
+</p>
+
+
+
+<div class="admin-buttons">
+
+
+<a href="admin-outdoor.html" class="edit-btn">
+Edit
+</a>
+
+
+<a href="admin-outdoor.html" class="update-btn">
+Update
+</a>
+
+
+<a href="admin-outdoor.html" class="manage-btn">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- MODULES -->
+
+
+<section class="modules">
+
+
+<h2>Sports Modules</h2>
+
+
+
+<div class="cards">
+
+
+
+
+
+<!-- COORDINATORS -->
+
+
+<div class="card">
+
+
+<h3>COORDINATORS</h3>
+
+
+<p>
+Manage faculty coordinators and student sports heads.
+</p>
+
+
+
+<div class="admin-buttons">
+
+
+<a href="admin-coordinators.html" class="edit-btn">
+Edit
+</a>
+
+
+<a href="admin-coordinators.html" class="update-btn">
+Update
+</a>
+
+
+<a href="admin-coordinators.html" class="manage-btn">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ACHIEVEMENTS -->
+
+
+<div class="card">
+
+
+<h3>ACHIEVEMENTS</h3>
+
+
+<p>
+Manage trophies, medals and sports achievements.
+</p>
+
+
+
+<div class="admin-buttons">
+
+
+<a href="admin-achievements.html" class="edit-btn">
+Edit
+</a>
+
+
+<a href="admin-achievements.html" class="update-btn">
+Update
+</a>
+
+
+<a href="admin-achievements.html" class="manage-btn">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- GALLERY -->
+
+
+<div class="card">
+
+
+<h3>SPORTS GALLERY</h3>
+
+
+<p>
+Manage sports event memories, matches and celebrations.
+</p>
+
+
+
+<div class="admin-buttons">
+
+
+<a href="admin-gallery.html" class="edit-btn">
+Edit
+</a>
+
+
+<a href="admin-gallery.html" class="update-btn">
+Update
+</a>
+
+
+<a href="admin-gallery.html" class="manage-btn">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+</body>
+</html>

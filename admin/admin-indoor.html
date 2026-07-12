@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Indoor Sports</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+
+body{
+    background:#f8fafc;
+    color:#1e3a8a;
+}
+
+
+
+/* Banner */
+
+.page-banner{
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+
+    font-size:40px;
+
+}
+
+
+.page-banner p{
+
+    margin-top:10px;
+
+}
+
+
+
+/* Admin Tag */
+
+.admin-tag{
+
+    text-align:center;
+    margin:25px;
+    color:#2563eb;
+    font-weight:bold;
+
+}
+
+
+
+/* Cards */
+
+.container{
+
+    width:85%;
+    margin:30px auto;
+
+}
+
+
+.admin-card{
+
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+.admin-card h2{
+
+    color:#1e3a8a;
+    margin-bottom:10px;
+
+}
+
+
+.admin-card p{
+
+    color:#64748b;
+    line-height:1.5;
+
+}
+
+
+
+/* Buttons */
+
+.buttons{
+
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+
+}
+
+
+.btn{
+
+    text-decoration:none;
+    color:white;
+    padding:8px 15px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+
+}
+
+
+.edit{
+
+    background:#2196f3;
+
+}
+
+
+.update{
+
+    background:#7b5cff;
+
+}
+
+
+.manage{
+
+    background:#14b8a6;
+
+}
+
+
+
+/* Competition display */
+
+.competition-box{
+
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:15px;
+
+}
+
+
+.competition{
+
+    background:#e0f2fe;
+    padding:12px 20px;
+    border-radius:20px;
+    color:#0369a1;
+    font-weight:bold;
+
+}
+
+
+
+/* Footer */
+
+footer{
+
+    margin-top:50px;
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+
+}
+
+
+
+@media(max-width:700px){
+
+.container{
+
+width:95%;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<section class="page-banner">
+
+<h1>🏓 Indoor Sports Admin</h1>
+
+<p>
+Manage indoor sports activities
+</p>
+
+</section>
+
+
+
+
+<div class="admin-tag">
+
+INDOOR SPORTS ADMIN PANEL
+
+</div>
+
+
+
+
+<div class="container">
+
+
+
+<!-- Registration -->
+
+
+<div class="admin-card">
+
+
+<h2>🏆 Indoor Sports Registration</h2>
+
+
+<p>
+Manage student registrations for indoor sports competitions.
+</p>
+
+
+
+<div class="buttons">
+
+
+<a href="admin-indoor-registration.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-indoor-registration.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-indoor-registration.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Competitions -->
+
+<div class="admin-card">
+
+
+<h2>🎯 Indoor Competitions</h2>
+
+
+<p>
+Manage available indoor sports competitions.
+</p>
+
+
+
+<div class="competition-box">
+
+
+<div class="competition">
+♟ Chess
+</div>
+
+
+<div class="competition">
+🎯 Carrom
+</div>
+
+
+<div class="competition">
+🏓 Table Tennis
+</div>
+
+
+</div>
+
+
+
+<div class="buttons">
+
+
+<a href="admin-indoor-competitions.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-indoor-competitions.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-indoor-competitions.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- Champions -->
+
+
+<div class="admin-card">
+
+
+<h2>🏆 Indoor Champions</h2>
+
+
+<p>
+Manage indoor sports winners and achievements.
+</p>
+
+
+
+<div class="buttons">
+
+
+<a href="admin-indoor-champions.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-indoor-champions.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-indoor-champions.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Schedule -->
+
+
+<div class="admin-card">
+
+
+<h2>📅 Match Schedule</h2>
+
+
+<p>
+Manage indoor sports match timings and venues.
+</p>
+
+
+
+<div class="buttons">
+
+
+<a href="admin-indoor-schedule.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-indoor-schedule.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-indoor-schedule.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Coordinators -->
+
+
+<div class="admin-card">
+
+
+<h2>👨‍🏫 Coordinators</h2>
+
+
+<p>
+Manage indoor sports faculty and student coordinators.
+</p>
+
+
+
+<div class="buttons">
+
+
+<a href="admin-indoor-coordinators.html" class="btn edit">
+Edit
+</a>
+
+
+<a href="admin-indoor-coordinators.html" class="btn update">
+Update
+</a>
+
+
+<a href="admin-indoor-coordinators.html" class="btn manage">
+Manage
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+</body>
+
+</html>

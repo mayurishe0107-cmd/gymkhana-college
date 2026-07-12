@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Sports Gallery</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#1e3a8a;
+}
+
+.page-banner{
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:white;
+text-align:center;
+padding:45px 20px;
+}
+
+.page-banner h1{
+font-size:40px;
+}
+
+.container{
+
+width:50%;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+label{
+
+display:block;
+font-weight:bold;
+margin-top:15px;
+
+}
+
+
+input,textarea{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #cbd5e1;
+border-radius:8px;
+
+}
+
+
+textarea{
+
+height:100px;
+resize:none;
+
+}
+
+
+.save-btn{
+
+margin-top:25px;
+width:100%;
+padding:14px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+footer{
+
+margin-top:50px;
+background:#2563eb;
+color:white;
+text-align:center;
+padding:15px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<section class="page-banner">
+
+<h1>🖼️ Edit Sports Gallery</h1>
+
+<p>
+Update gallery images and details
+</p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<form>
+
+
+<label>
+Image Title
+</label>
+
+<input type="text" id="title">
+
+
+
+<label>
+Image Path
+</label>
+
+<input type="text" id="image">
+
+
+
+<label>
+Description
+</label>
+
+<textarea id="description"></textarea>
+
+
+
+<button class="save-btn">
+Save Changes
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+<script>
+
+
+let params = new URLSearchParams(window.location.search);
+
+let id = params.get("id");
+
+
+// Cricket
+
+if(id=="1"){
+
+document.getElementById("title").value=
+"Cricket Championship";
+
+document.getElementById("image").value=
+"images/cricket.jpg";
+
+document.getElementById("description").value=
+"Inter College Cricket Tournament moments and team celebrations.";
+
+}
+
+
+// Volleyball
+
+else if(id=="2"){
+
+document.getElementById("title").value=
+"Volleyball Championship";
+
+document.getElementById("image").value=
+"images/volleyball.jpg";
+
+document.getElementById("description").value=
+"Volleyball Championship Event memories.";
+
+}
+
+
+// Kabaddi
+
+else if(id=="3"){
+
+document.getElementById("title").value=
+"Kabaddi Sports Event";
+
+document.getElementById("image").value=
+"images/kabaddi.jpg";
+
+document.getElementById("description").value=
+"Girls Kabaddi Sports Event moments.";
+
+}
+
+
+</script>
+
+
+</body>
+</html>

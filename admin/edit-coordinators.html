@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Coordinator</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+background:#f8fafc;
+color:#1e3a8a;
+}
+
+
+.page-banner{
+
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:white;
+text-align:center;
+padding:45px 20px;
+
+}
+
+
+.page-banner h1{
+font-size:38px;
+}
+
+
+
+.container{
+
+width:50%;
+margin:50px auto;
+background:white;
+padding:35px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+label{
+
+font-weight:bold;
+display:block;
+margin-top:15px;
+
+}
+
+
+
+input{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #cbd5e1;
+border-radius:8px;
+font-size:15px;
+
+}
+
+
+
+.save-btn{
+
+margin-top:25px;
+width:100%;
+padding:14px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+
+.delete-btn{
+
+margin-top:15px;
+width:100%;
+padding:14px;
+background:#ef4444;
+color:white;
+border:none;
+border-radius:10px;
+font-weight:bold;
+
+}
+
+
+
+footer{
+
+margin-top:50px;
+background:#2563eb;
+color:white;
+text-align:center;
+padding:15px;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<section class="page-banner">
+
+<h1>✏️ Edit Coordinator</h1>
+
+<p>
+Update Coordinator Details
+</p>
+
+</section>
+
+
+
+
+<div class="container">
+
+
+<form>
+
+
+
+<label>
+Coordinator ID
+</label>
+
+<input type="text" id="id" readonly>
+
+
+
+<label>
+Position
+</label>
+
+<input type="text" id="position" 
+value="Sports Director">
+
+
+
+<label>
+Name
+</label>
+
+<input type="text" id="name"
+value="Prof. ABC XYZ">
+
+
+
+<label>
+Contact
+</label>
+
+<input type="text" id="contact"
+value="9876543210">
+
+
+
+
+
+
+
+
+<button class="save-btn">
+
+Save Changes
+
+</button>
+
+
+<button type="button" class="delete-btn">
+Delete Coordinator
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+<footer>
+
+© 2026 College Gymkhana Sports Department.
+
+</footer>
+
+
+
+
+
+<script>
+
+
+// Get ID from URL
+
+let params = new URLSearchParams(window.location.search);
+
+let coordinatorId = params.get("id");
+
+
+// Show ID
+
+document.getElementById("id").value = coordinatorId || "1";
+
+document.querySelector(".delete-btn")
+.setAttribute("data-id", coordinatorId || "1");
+
+
+// Example loading data
+
+if(coordinatorId=="2"){
+
+document.getElementById("position").value="Faculty Coordinator";
+
+document.getElementById("name").value="Prof. PQR Patil";
+
+document.getElementById("contact").value="9876543211";
+
+}
+
+
+
+if(coordinatorId=="3"){
+
+document.getElementById("position").value="Student Coordinator";
+
+document.getElementById("name").value="Rahul Sharma";
+
+document.getElementById("contact").value="9876543212";
+
+}
+
+
+
+if(coordinatorId=="4"){
+
+document.getElementById("position").value="Assistant Coordinator";
+
+document.getElementById("name").value="Priya Deshmukh";
+
+document.getElementById("contact").value="9876543213";
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
